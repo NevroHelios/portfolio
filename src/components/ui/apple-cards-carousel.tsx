@@ -18,7 +18,7 @@ import Image, { ImageProps } from "next/image";
 import { useOutsideClick } from "@/hooks/useOutsideClick";
 
 interface CarouselProps {
-  items: JSX.Element[];
+  // items: JSX.Element[];
   initialScroll?: number;
 }
 
