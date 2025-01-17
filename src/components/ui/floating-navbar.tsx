@@ -59,7 +59,7 @@ export const FloatingNav = ({
           </Link>
         );
       })}
-      <button 
+      {/* <button 
         className={cn(
           "border text-sm font-medium rounded-full",
           "border-[#2a3441]/40 text-[#e2e8f0]",
@@ -71,7 +71,7 @@ export const FloatingNav = ({
         )}
       >
         <span>Login</span>
-      </button>
+      </button> */}
     </nav>
   );
 };

@@ -14,11 +14,10 @@ import {
 } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
-import Image, { ImageProps } from "next/image";
-import { useOutsideClick } from "@/hooks/useOutsideClick";
+import Image, { type ImageProps } from "next/image";
 
 interface CarouselProps {
-  // items: JSX.Element[];
+  items: JSX.Element[];
   initialScroll?: number;
 }
 
@@ -42,7 +41,6 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
   const [canScrollLeft, setCanScrollLeft] = React.useState(false);
   const [canScrollRight, setCanScrollRight] = React.useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     if (carouselRef.current) {
@@ -51,34 +49,6 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
     }
   }, [initialScroll]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!carouselRef.current) return;
-      
-      const currentScrollY = window.scrollY;
-      
-      if (currentScrollY > lastScrollY) {
-        // Scrolling down - scroll right
-        carouselRef.current.scrollBy({ 
-          left: 100, 
-          behavior: "smooth" 
-        });
-      } else {
-        // Scrolling up - scroll left
-        carouselRef.current.scrollBy({ 
-          left: -100, 
-          behavior: "smooth" 
-        });
-      }
-      
-      setLastScrollY(currentScrollY);
-      checkScrollability();
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
-
   const checkScrollability = () => {
     if (carouselRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
@@ -86,7 +56,6 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
       setCanScrollRight(scrollLeft < scrollWidth - clientWidth);
     }
   };
-
 
   const scrollLeft = () => {
     if (carouselRef.current) {
@@ -102,8 +71,8 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
 
   const handleCardClose = (index: number) => {
     if (carouselRef.current) {
-      const cardWidth = isMobile() ? 230 : 384; // (md:w-96)
-      const gap = isMobile() ? 4 : 8;
+      const cardWidth = window.innerWidth < 768 ? 230 : 384;
+      const gap = window.innerWidth < 768 ? 4 : 8;
       const scrollPosition = (cardWidth + gap) * (index + 1);
       carouselRef.current.scrollTo({
         left: scrollPosition,
@@ -113,71 +82,61 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
     }
   };
 
-  const isMobile = () => {
-    return window && window.innerWidth < 768;
-  };
-
   return (
-    <CarouselContext.Provider
-      value={{ onCardClose: handleCardClose, currentIndex }}
-    >
-      <div className="relative w-full">
-      <div
-  className="relative w-full overflow-x-auto py-10 md:py-20 scroll-smooth scrollbar-hide"
-  ref={carouselRef}
-  onScroll={checkScrollability}
->
+    <CarouselContext.Provider value={{ onCardClose: handleCardClose, currentIndex }}>
+      <div className="relative w-full h-screen flex flex-col items-center justify-center">
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-7xl">
+          {/* Navigation Controls */}
+          <div className="flex justify-center gap-4 mb-8">
+            <button
+              className="relative z-40 h-12 w-12 rounded-full bg-[#1e2538] hover:bg-[#2a3441] transition-colors flex items-center justify-center disabled:opacity-50 border border-[#2a3441]/40"
+              onClick={scrollLeft}
+              disabled={!canScrollLeft}
+            >
+              <IconArrowNarrowLeft className="h-6 w-6 text-[#94a3b8]" />
+            </button>
+            <button
+              className="relative z-40 h-12 w-12 rounded-full bg-[#1e2538] hover:bg-[#2a3441] transition-colors flex items-center justify-center disabled:opacity-50 border border-[#2a3441]/40"
+              onClick={scrollRight}
+              disabled={!canScrollRight}
+            >
+              <IconArrowNarrowRight className="h-6 w-6 text-[#94a3b8]" />
+            </button>
+          </div>
+
+          {/* Carousel Container */}
           <div
-            className={cn(
-              "flex flex-row justify-start gap-4 pl-4",
-              "max-w-7xl mx-auto"
-            )}
+            className="relative w-full overflow-x-auto scroll-smooth scrollbar-hide"
+            ref={carouselRef}
+            onScroll={checkScrollability}
           >
-            {items.map((item, index) => (
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                  transition: {
-                    duration: 0.5,
-                    delay: 0.2 * index,
-                    ease: "easeOut",
-                    once: true,
-                  },
-                }}
-                key={`card-${index}`}
-                className="snap-start rounded-3xl min-w-[300px] md:min-w-[400px]"
-              >
-                {item}
-              </motion.div>
-            ))}
+            <div className="flex flex-row gap-4 px-4">
+              {items.map((item, index) => (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                    transition: {
+                      duration: 0.5,
+                      delay: 0.2 * index,
+                      ease: "easeOut",
+                    },
+                  }}
+                  key={`card-${index}`}
+                  className="snap-start rounded-3xl min-w-[280px] md:min-w-[380px]"
+                >
+                  {item}
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
-
-        {/* <div className="flex justify-end gap-2 mr-10">
-          <button
-            className="relative z-40 h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center disabled:opacity-50"
-            onClick={scrollLeft}
-            disabled={!canScrollLeft}
-          >
-            <IconArrowNarrowLeft className="h-6 w-6 text-gray-500" />
-          </button>
-          <button
-            className="relative z-40 h-10 w-10 rounded-full bg-gray-100 flex items-center justify-center disabled:opacity-50"
-            onClick={scrollRight}
-            disabled={!canScrollRight}
-          >
-            <IconArrowNarrowRight className="h-6 w-6 text-gray-500" />
-          </button>
-        </div> */}
       </div>
     </CarouselContext.Provider>
   );
 };
+
 
 export const Card = ({
   card,
@@ -209,7 +168,7 @@ export const Card = ({
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [open]);
 
-  useOutsideClick(containerRef, () => handleClose());
+  // useOutsideClick(containerRef, () => handleClose());
 
   const handleOpen = () => {
     setOpen(true);
