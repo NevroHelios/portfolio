@@ -6,6 +6,7 @@ import React, {
   useState,
   createContext,
   useContext,
+  JSX,
 } from "react";
 import {
   IconArrowNarrowLeft,
@@ -49,6 +50,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
     }
   }, [initialScroll]);
 
+  // Remove the scroll event listener that was causing vertical scrolling
   const checkScrollability = () => {
     if (carouselRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
@@ -84,52 +86,50 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
 
   return (
     <CarouselContext.Provider value={{ onCardClose: handleCardClose, currentIndex }}>
-      <div className="relative w-full h-screen flex flex-col items-center justify-center">
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-7xl">
-          {/* Navigation Controls */}
-          <div className="flex justify-center gap-4 mb-8">
-            <button
-              className="relative z-40 h-12 w-12 rounded-full bg-[#1e2538] hover:bg-[#2a3441] transition-colors flex items-center justify-center disabled:opacity-50 border border-[#2a3441]/40"
-              onClick={scrollLeft}
-              disabled={!canScrollLeft}
-            >
-              <IconArrowNarrowLeft className="h-6 w-6 text-[#94a3b8]" />
-            </button>
-            <button
-              className="relative z-40 h-12 w-12 rounded-full bg-[#1e2538] hover:bg-[#2a3441] transition-colors flex items-center justify-center disabled:opacity-50 border border-[#2a3441]/40"
-              onClick={scrollRight}
-              disabled={!canScrollRight}
-            >
-              <IconArrowNarrowRight className="h-6 w-6 text-[#94a3b8]" />
-            </button>
-          </div>
-
-          {/* Carousel Container */}
-          <div
-            className="relative w-full overflow-x-auto scroll-smooth scrollbar-hide"
-            ref={carouselRef}
-            onScroll={checkScrollability}
+      <div className="relative w-full h-full flex flex-col">
+        {/* Navigation Controls */}
+        <div className="flex justify-center gap-4 mb-6">
+          <button
+            className="relative z-40 h-12 w-12 rounded-full bg-[#1e2538] hover:bg-[#2a3441] transition-colors flex items-center justify-center disabled:opacity-50 border border-[#2a3441]/40"
+            onClick={scrollLeft}
+            disabled={!canScrollLeft}
           >
-            <div className="flex flex-row gap-4 px-4">
-              {items.map((item, index) => (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      duration: 0.5,
-                      delay: 0.2 * index,
-                      ease: "easeOut",
-                    },
-                  }}
-                  key={`card-${index}`}
-                  className="snap-start rounded-3xl min-w-[280px] md:min-w-[380px]"
-                >
-                  {item}
-                </motion.div>
-              ))}
-            </div>
+            <IconArrowNarrowLeft className="h-6 w-6 text-[#94a3b8]" />
+          </button>
+          <button
+            className="relative z-40 h-12 w-12 rounded-full bg-[#1e2538] hover:bg-[#2a3441] transition-colors flex items-center justify-center disabled:opacity-50 border border-[#2a3441]/40"
+            onClick={scrollRight}
+            disabled={!canScrollRight}
+          >
+            <IconArrowNarrowRight className="h-6 w-6 text-[#94a3b8]" />
+          </button>
+        </div>
+
+        {/* Carousel Container */}
+        <div 
+          ref={carouselRef}
+          onScroll={checkScrollability}
+          className="flex-1 overflow-x-auto overflow-y-hidden scroll-smooth scrollbar-hide"
+        >
+          <div className="flex flex-row gap-6 px-8 h-full items-center min-w-min">
+            {items.map((item, index) => (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    duration: 0.5,
+                    delay: 0.2 * index,
+                    ease: "easeOut",
+                  },
+                }}
+                key={`card-${index}`}
+                className="snap-start rounded-3xl min-w-[280px] md:min-w-[380px]"
+              >
+                {item}
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>
