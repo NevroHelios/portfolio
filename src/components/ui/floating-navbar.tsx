@@ -46,32 +46,22 @@ export const FloatingNav = ({
             key={`link-${idx}`}
             href={navItem.link}
             className={cn(
-              "relative flex items-center space-x-1",
-              "text-sm font-medium px-3 py-1 rounded-full",
+              "block", // Changed to block to take full height
+              "relative px-3 py-1 rounded-full",
               "transition-all duration-200 ease-in-out",
+              "cursor-pointer", // Added explicit cursor
+              "hover:bg-[#1e2538] hover:shadow-[0_2px_8px_0_rgba(31,38,135,0.15)]",
               isActive
                 ? "text-white bg-gradient-to-r from-[#3b82f6] to-[#60a5fa] shadow-[inset_0_1px_12px_0_rgba(59,130,246,0.2)]"
-                : "text-[#94a3b8] hover:text-white",
-                  "hover:bg-[#1e2538] hover:shadow-[0_2px_8px_0_rgba(31,38,135,0.15)]"
+                : "text-[#94a3b8] hover:text-white"
             )}
           >
-            <span>{navItem.name}</span>
+            <span className="inline-block w-full h-full">
+              {navItem.name}
+            </span>
           </Link>
         );
       })}
-      {/* <button 
-        className={cn(
-          "border text-sm font-medium rounded-full",
-          "border-[#2a3441]/40 text-[#e2e8f0]",
-          "px-4 py-2 transition-all duration-200",
-          "bg-gradient-to-r from-transparent to-transparent",
-          "hover:from-[#3b82f6] hover:to-[#60a5fa]",
-          "hover:border-transparent hover:text-white",
-          "hover:shadow-[0_2px_8px_0_rgba(59,130,246,0.25)]"
-        )}
-      >
-        <span>Login</span>
-      </button> */}
     </nav>
   );
 };
