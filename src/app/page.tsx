@@ -3,22 +3,22 @@
 import Image from "next/image";
 import { FloatingNavDemo } from "../components/Navbar";
 import { ThreeDProfileCard } from "../components/card";
-import { UnderwaterBubbleAnimation } from "../components/UnderwaterBubbleAnimation";
+import { DataFlowAnimation } from "../components/DataFlowAnimation";
 import { FloatingTextAnimation } from "../components/FloatingTextAnimation";
 
 export default function Home() {
   return (
     <div className="relative w-screen h-screen overflow-hidden bg-gradient-to-b from-[#1a1f35] to-[#111827]">
-      {/* Background animations always visible on top (but pointer-events-none so they don’t block interaction) */}
-      <div className="fixed inset-0 z-20 pointer-events-none">
+      {/* Background animations - remove pointer-events-none */}
+      <div className="fixed inset-0 z-0">
         <FloatingTextAnimation />
-        <UnderwaterBubbleAnimation />
+        <DataFlowAnimation />
       </div>
 
-      {/* Card with delayed entrance */}
+      {/* Card with delayed entrance - higher z-index */}
       <div
-        className="relative z-19 opacity-0 animate-fade-in"
-        style={{ animationDelay: "2.5s" }}
+        className="relative z-10 opacity-0 animate-fade-in"
+        style={{ animationDelay: "1.5s" }}
       >
         <FloatingNavDemo />
         <ThreeDProfileCard />

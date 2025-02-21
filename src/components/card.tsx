@@ -7,16 +7,15 @@ import { FaLinkedin, FaKaggle } from "react-icons/fa";
 const ThreeDProfileCard = () => {
   return (
     // Background gradient
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-b from-[#1a1f35] to-[#111827]">
-      <CardContainer className="w-[1000px]">
-        {/* Card background with custom shadow */}
+    <div className="flex items-center justify-center py-8 min-h-screen">
+      <CardContainer className="w-[100%] max-w-[1000px]">
         <CardBody className="relative bg-[#1e2538] text-white rounded-2xl p-8 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] backdrop-blur-lg border border-opacity-18 border-[#2a3441]">
-          <div className="flex justify-between">
-            {/* Left side - Image */}
-            <div className="flex gap-8">
+          <div className="flex flex-col md:flex-row justify-between gap-6">
+            {/* Left side - Image and Text content */}
+            <div className="flex flex-col md:flex-row gap-8">
               <CardItem
                 translateZ="100"
-                className="w-60 h-60 rounded-xl overflow-hidden shadow-[0_4px_20px_0_rgba(61,78,175,0.37)]"
+                className="w-48 h-48 md:w-60 md:h-60 mx-auto md:mx-0 rounded-xl overflow-hidden shadow-[0_4px_20px_0_rgba(61,78,175,0.37)]"
               >
                 <img
                   src="/saber_1.png"
@@ -24,20 +23,21 @@ const ThreeDProfileCard = () => {
                   className="w-full h-full object-cover"
                 />
               </CardItem>
-              {/* Right side - Text content */}
-              <div className="flex flex-col justify-center md:text-left">
+              {/* Text content */}
+              <div className="flex flex-col justify-center text-center md:text-left">
                 <CardItem
                   translateZ="50"
                   className="text-2xl font-bold text-[#e2e8f0]"
                 >
-                  Crafting Innovative Software Solutions
+                  Arka Dash
                 </CardItem>
                 <CardItem
                   as="p"
                   translateZ="60"
-                  className="text-[#94a3b8] mt-3 md:mt-3 text-sm md:text-base"
+                  className="text-[#94a3b8] mt-3 text-sm md:text-base max-w-[500px]"
                 >
-                  Passionate about creating impactful web applications and data science projects.
+                  Dual degree student pursuing B.Tech in Computer Science (KGEC) and BS in Data Science (IIT Madras). 
+                  Passionate about Machine Learning, Data Science, and developing innovative solutions.
                 </CardItem>
               </div>
             </div>
