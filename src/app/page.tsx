@@ -18,20 +18,20 @@ export default function Home() {
 
       {/* Content container with delayed entrance */}
       <div
-        className="relative z-10 opacity-0 animate-fade-in px-4 py-8"
+        className="relative z-10 opacity-1 animate-fade-in px-4 py-8"
         style={{ animationDelay: "1.5s" }}
       >
         <FloatingNavDemo />
         <div className="max-w-7xl mx-auto min-h-[calc(110vh-200px)] flex items-center">
           {/* Changed to grid layout with vertical centering */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center justify-center py-8 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start w-full">
             <ThreeDProfileCard />
             <AchievementsCard />
           </div>
         </div>
       </div>
 
-      <style jsx>{`
+      {/* <style jsx>{`
         @keyframes fade-in {
           from {
             opacity: 0;
@@ -45,7 +45,7 @@ export default function Home() {
         .animate-fade-in {
           animation: fade-in 1.5s ease-out forwards;
         }
-      `}</style>
+      `}</style> */}
     </div>
   );
 }
