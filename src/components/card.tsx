@@ -1,7 +1,7 @@
 import React from "react";
 import { CardBody, CardContainer, CardItem } from "./ui/3d-card";
 import { Github } from "lucide-react";
-import { SiPython, SiPytorch, SiReact, SiTensorflow, SiJupyter, SiNumpy, SiPandas } from "react-icons/si";
+import { SiPython, SiPytorch, SiReact, SiTensorflow, SiJupyter, SiNumpy, SiPandas, SiTypescript } from "react-icons/si";
 import { FaLinkedin, FaKaggle } from "react-icons/fa";
 
 const ThreeDProfileCard = () => {
@@ -63,7 +63,7 @@ const ThreeDProfileCard = () => {
               <div className="w-full h-px bg-gray-700/50" />
 
               {/* Tech Stack */}
-              <div className="grid grid-cols-3 sm:grid-cols-6 gap-6 justify-items-center">
+              <div className="grid grid-cols-3 sm:grid-cols-8 gap-4 justify-items-center">
                 <CardItem translateZ="30" className="group">
                   <SiPython className="w-8 h-8 text-yellow-400 group-hover:scale-110 transition-transform" />
                 </CardItem>
@@ -81,6 +81,12 @@ const ThreeDProfileCard = () => {
                 </CardItem>
                 <CardItem translateZ="30" className="group">
                   <SiPandas className="w-8 h-8 text-cyan-400 group-hover:scale-110 transition-transform" />
+                </CardItem>
+                <CardItem translateZ="30" className="group">
+                  <SiReact className="w-8 h-8 text-blue-400 group-hover:scale-110 transition-transform" />
+                </CardItem>
+                <CardItem translateZ="30" className="group">
+                  <SiTypescript className="w-8 h-8 text-blue-400 group-hover:scale-110 transition-transform" />
                 </CardItem>
               </div>
             </div>
