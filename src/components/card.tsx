@@ -48,9 +48,7 @@ const ThreeDProfileCard = () => {
                   translateZ="50"
                   className="text-sm text-gray-300 leading-relaxed max-w-[500px]"
                 >
-                  Dual degree student pursuing B.Tech in Computer Science (KGEC) 
-                  and BS in Data Science (IIT Madras). Passionate about Machine 
-                  Learning, Data Science, and developing innovative solutions.
+                  Dual degree student pursuing <span className="text-white font-bold">B.Tech</span> in Computer Science (<span className="text-white font-bold">KGEC</span>) and <span className="text-white font-bold">BS</span> in <span className="text-white font-bold">Data Science</span> (<span className="text-white font-bold">IIT Madras</span>). Passionate about <span className="text-white font-bold">Machine Learning</span>, <span className="text-white font-bold">Data Science</span>, and developing innovative solutions.
                 </CardItem>
               </div>
             </div>
