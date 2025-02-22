@@ -1,5 +1,5 @@
 "use client";
-
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { FloatingNavDemo } from "../components/Navbar";
 import { ThreeDProfileCard } from "../components/card";
@@ -8,44 +8,58 @@ import { DataFlowAnimation } from "../components/DataFlowAnimation";
 import { FloatingTextAnimation } from "../components/FloatingTextAnimation";
 
 export default function Home() {
+  const [showIntro, setShowIntro] = useState(false);
+
+  useEffect(() => {
+    // Check if this is the first visit
+    const hasVisited = localStorage.getItem('hasVisitedBefore');
+    
+    if (!hasVisited) {
+      setShowIntro(true);
+      // Set the flag after showing intro
+      localStorage.setItem('hasVisitedBefore', 'true');
+    }
+
+    // Clear the flag after 1 hour (optional)
+    const lastVisit = localStorage.getItem('lastVisitTime');
+    const currentTime = new Date().getTime();
+    
+    if (!lastVisit || currentTime - parseInt(lastVisit) > 3600000) { // 1 hour
+      setShowIntro(true);
+      localStorage.setItem('lastVisitTime', currentTime.toString());
+    }
+  }, []);
+
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-gradient-to-b from-[#1a1f35] to-[#111827]">
-      {/* Background animations */}
+      {/* Background layer */}
       <div className="fixed inset-0 z-0">
-        <FloatingTextAnimation />
         <DataFlowAnimation />
       </div>
 
-      {/* Content container with delayed entrance */}
-      <div
-        className="relative z-10 opacity-1 animate-fade-in px-4 py-8"
-        style={{ animationDelay: "1.5s" }}
+      {/* Floating text layer - only shown on first visit */}
+      {showIntro && (
+        <div className="fixed inset-0 z-10">
+          <FloatingTextAnimation />
+        </div>
+      )}
+
+      {/* Content layer */}
+      <div 
+        className="relative z-20 opacity-0 animate-fade-in"
+        style={{ 
+          animationDelay: showIntro ? "3s" : "0s",
+          animationFillMode: "forwards"
+        }}
       >
         <FloatingNavDemo />
         <div className="max-w-7xl mx-auto min-h-[calc(110vh-200px)] flex items-center">
-          {/* Changed to grid layout with vertical centering */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start w-full pt-28">
             <ThreeDProfileCard />
             <AchievementsCard />
           </div>
         </div>
       </div>
-
-      {/* <style jsx>{`
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-fade-in {
-          animation: fade-in 1.5s ease-out forwards;
-        }
-      `}</style> */}
     </div>
   );
 }

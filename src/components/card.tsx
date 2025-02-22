@@ -7,7 +7,7 @@ import { FaLinkedin, FaKaggle } from "react-icons/fa";
 const ThreeDProfileCard = () => {
   return (
     <div className="w-full">
-      <CardContainer>
+      <CardContainer className="inter-var">
         <CardBody className="relative bg-[#1e2538] text-white rounded-2xl p-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] backdrop-blur-lg border border-opacity-18 border-[#2a3441]">
           {/* Main content container */}
           <div className="flex flex-col gap-8">

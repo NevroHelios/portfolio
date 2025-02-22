@@ -38,7 +38,7 @@ export const DataFlowAnimation: React.FC = () => {
 
     // Particle settings
     const particles: Particle[] = [];
-    const particleCount = 100;
+    const particleCount = 170;
     const connectionDistance = 150;
     
     // Create particles with base positions and velocities
