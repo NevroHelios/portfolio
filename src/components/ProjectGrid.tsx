@@ -15,19 +15,24 @@ const ProjectGrid = () => {
   );
 };
 
-const ProjectCard = ({ title, description, techStack, image, liveDemo, github }) => {
+interface ProjectProps {
+  title: string;
+  description: string;
+  techStack: string[];
+  image: string;
+  liveDemo: string;
+  github: string;
+}
+
+const ProjectCard = ({ title, description, techStack, image, liveDemo, github }: ProjectProps) => {
   return (
     <motion.div
-      className="relative group rounded-xl bg-neutral-900/50 backdrop-blur-sm border border-neutral-800 overflow-hidden"
+      className="bg-[#1a1a1a] rounded-xl overflow-hidden border border-gray-800 hover:border-cyan-500 group"
       whileHover={{ scale: 1.02 }}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{
-        transform: { type: "spring", stiffness: 400, damping: 30 }
-      }}
+      transition={{ duration: 0.2 }}
     >
-      <div className="relative h-48 w-full overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 to-transparent z-10" />
+      <div className="relative h-48 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] to-transparent z-10" />
         <img 
           src={image} 
           alt={title}
@@ -36,14 +41,14 @@ const ProjectCard = ({ title, description, techStack, image, liveDemo, github })
       </div>
       
       <div className="p-6 space-y-4">
-        <h2 className="text-2xl font-bold text-white">{title}</h2>
-        <p className="text-neutral-300">{description}</p>
+        <h3 className="text-xl font-semibold text-white">{title}</h3>
+        <p className="text-gray-400">{description}</p>
         
         <div className="flex flex-wrap gap-2">
           {techStack.map((tech) => (
             <span 
               key={tech} 
-              className="px-3 py-1 text-sm rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20"
+              className="px-3 py-1 text-sm rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20"
             >
               {tech}
             </span>
@@ -51,26 +56,22 @@ const ProjectCard = ({ title, description, techStack, image, liveDemo, github })
         </div>
         
         <div className="flex gap-4 pt-2">
-          {liveDemo && (
-            <a 
-              href={liveDemo}
-              target="_blank"
-              rel="noopener noreferrer" 
-              className="px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-colors"
-            >
-              Live Demo
-            </a>
-          )}
-          {github && (
-            <a 
-              href={github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 rounded-lg bg-neutral-700 hover:bg-neutral-600 text-white transition-colors"
-            >
-              GitHub
-            </a>
-          )}
+          <a 
+            href={liveDemo}
+            target="_blank"
+            rel="noopener noreferrer" 
+            className="px-4 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-600 text-white transition-colors"
+          >
+            View Live
+          </a>
+          <a 
+            href={github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 rounded-lg border border-gray-700 hover:border-cyan-500 text-gray-300 transition-colors"
+          >
+            Source Code
+          </a>
         </div>
       </div>
     </motion.div>

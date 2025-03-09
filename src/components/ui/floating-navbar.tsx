@@ -1,8 +1,14 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useMotionValueEvent,
+} from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { JSX } from "react";
 
 export const FloatingNav = ({
   navItems,
@@ -11,59 +17,67 @@ export const FloatingNav = ({
   navItems: {
     name: string;
     link: string;
+    icon?: JSX.Element;
   }[];
   className?: string;
 }) => {
-  const [mounted, setMounted] = useState(false);
-  const pathname = usePathname();
+  const { scrollYProgress } = useScroll();
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const [visible, setVisible] = useState(false);
 
-  if (!mounted) {
-    return null;
-  }
+  useMotionValueEvent(scrollYProgress, "change", (current) => {
+    // Check if current is not undefined and is a number
+    if (typeof current === "number") {
+      let direction = current! - scrollYProgress.getPrevious()!;
+
+      if (scrollYProgress.get() < 0.05) {
+        setVisible(false);
+      } else {
+        if (direction < 0) {
+          setVisible(true);
+        } else {
+          setVisible(false);
+        }
+      }
+    }
+  });
 
   return (
-    <nav
-      className={cn(
-        "flex max-w-fit fixed top-10 inset-x-0 mx-auto",
-        "border border-opacity-40 border-[#2a3441]",
-        "rounded-full bg-gradient-to-r from-[#1a1f35]/90 to-[#111827]/90",
-        "backdrop-blur-md shadow-[0_8px_32px_0_rgba(31,38,135,0.25)]",
-        "pr-4 pl-8 py-2 items-center justify-center space-x-4",
-        "transition-all duration-300 ease-in-out",
-        "hover:shadow-[0_8px_32px_0_rgba(31,38,135,0.35)]",
-        "hover:bg-gradient-to-r hover:from-[#1e2538]/95 hover:to-[#151c2f]/95",
-        className
-      )}
-    >
-      {navItems.map((navItem, idx) => {
-        const isActive = pathname === navItem.link || (pathname === "/" && navItem.link === "/home");
-        return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        initial={{
+          opacity: 1,
+          y: -100,
+        }}
+        animate={{
+          y: visible ? 0 : -100,
+          opacity: visible ? 1 : 0,
+        }}
+        transition={{
+          duration: 0.2,
+        }}
+        className={cn(
+          "flex max-w-fit fixed top-10 inset-x-0 mx-auto border border-gray-800 rounded-full bg-[#1a1a1a] shadow-[0px_2px_15px_-3px_rgba(0,0,0,0.4)] z-[5000] pr-2 pl-8 py-2 items-center justify-center space-x-4",
+          className
+        )}
+      >
+        {navItems.map((navItem: any, idx: number) => (
           <Link
-            key={`link-${idx}`}
+            key={`link=${idx}`}
             href={navItem.link}
             className={cn(
-              "block", // Changed to block to take full height
-              "relative px-3 py-1 rounded-full",
-              "transition-all duration-200 ease-in-out",
-              "cursor-pointer", // Added explicit cursor
-              "hover:bg-[#1e2538] hover:shadow-[0_2px_8px_0_rgba(31,38,135,0.15)]",
-              isActive
-                ? "text-white bg-gradient-to-r from-[#3b82f6] to-[#60a5fa] shadow-[inset_0_1px_12px_0_rgba(59,130,246,0.2)]"
-                : "text-[#94a3b8] hover:text-white"
+              "relative text-gray-400 items-center flex space-x-1 hover:text-cyan-400 transition-colors"
             )}
           >
-            <span className="inline-block w-full h-full">
-              {navItem.name}
-            </span>
+            <span className="block sm:hidden">{navItem.icon}</span>
+            <span className="hidden sm:block text-sm">{navItem.name}</span>
           </Link>
-        );
-      })}
-    </nav>
+        ))}
+        <button className="border text-sm font-medium relative border-gray-800 text-gray-200 px-4 py-2 rounded-full hover:border-cyan-500 transition-colors">
+          <span>Login</span>
+          <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-cyan-500 to-transparent h-px" />
+        </button>
+      </motion.div>
+    </AnimatePresence>
   );
 };
-
-export default FloatingNav;
