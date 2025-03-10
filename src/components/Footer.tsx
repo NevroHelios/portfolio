@@ -65,7 +65,7 @@ const Footer = () => {
       <div>
         <div className="flex items-center gap-2 mb-2 group">
           <div className="w-6 h-6 text-yellow-500 transition-all duration-300 group-hover:rotate-180">
-            <BatLogo className="w-full h-full" />
+            <BatLogo className="w-9 h-49" />
           </div>
           <span className="text-2xl font-bold text-white group-hover:text-yellow-500 transition-colors duration-300">ARKA</span>
         </div>

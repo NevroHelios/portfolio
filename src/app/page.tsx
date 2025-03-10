@@ -118,7 +118,7 @@ export default function Home() {
       </section>
 
       {/* Blog Section */}
-      <section id="blog" className="py-20 bg-black relative">
+      {/* <section id="blog" className="py-20 bg-black relative">
         <div className="absolute inset-0 bg-[url('/gotham-grid.png')] bg-repeat opacity-5"></div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -172,7 +172,7 @@ export default function Home() {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
 
       {/* Footer */}

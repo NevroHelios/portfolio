@@ -112,8 +112,8 @@ const Skill_About = () => {
                   <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-yellow-500/50"></div>
                   
                   <div className="relative z-10">
-                    <h3 className="font-medium text-xl mb-6 text-yellow-400 uppercase tracking-wide flex items-center">
-                      <BatLogo className="w-4 h-4 mr-2 text-yellow-500" />
+                    <h3 className="font-medium text-xl text-yellow-400 uppercase tracking-wide flex items-center">
+                      <BatLogo className='w-20 h-20' />
                       Education
                     </h3>
                     <div className="mb-6 pb-6 border-b border-zinc-700">
@@ -166,7 +166,7 @@ const Skill_About = () => {
                     
                     <div className="relative z-10">
                       <h3 className="text-xl font-medium mb-6 text-yellow-400 uppercase tracking-wide flex items-center">
-                        <BatLogo className="w-4 h-4 mr-2 text-yellow-500" />
+                        <BatLogo className="w-10 h-10 mr-2 text-yellow-500" />
                         {category}
                       </h3>
                       <div className="flex flex-wrap gap-2">
