@@ -1,10 +1,18 @@
+/** @type {import('next').NextConfig} */
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Don't need output: 'export' for Vercel
+  // basePath should only be used for GitHub Pages, not Vercel
+  basePath: process.env.GITHUB_PAGES === 'true' ? '/infinai' : '',
   images: {
-    domains: ["images.unsplash.com", "source.unsplash.com", "assets.aceternity.com"],
+    unoptimized: process.env.GITHUB_PAGES === 'true',
+    remotePatterns: [
+      { protocol: 'https', hostname: '**' },
+      { protocol: 'http', hostname: '**' },
+    ],
   },
+
 };
 
-export default nextConfig;
+module.exports = nextConfig;

@@ -4,7 +4,7 @@ const featuredProjects = [
       title: "Machine Learning Image Classifier",
       description: "A PyTorch-based image classification system with 98% accuracy on the test dataset.",
       tags: ["PyTorch", "Python", "Computer Vision"],
-      imageUrl: "/projects/ml-image-classifier.jpg",
+      imageUrl: "https://static1.colliderimages.com/wordpress/wp-content/uploads/2022/08/Jujutsu-Kaisen.jpg",
       githubUrl: "https://github.com/yourusername/ml-image-classifier",
       demoUrl: "https://ml-image-classifier-demo.vercel.app"
     },
@@ -13,7 +13,7 @@ const featuredProjects = [
       title: "Data Visualization board",
       description: "Interactive board built with Next.js and D3.js for visualizing complex datasets.",
       tags: ["Next.js", "TypeScript", "D3.js", "Tailwind CSS"],
-      imageUrl: "/projects/data-viz-board.jpg",
+      imageUrl: "https://hobiverse.com.vn/cdn/shop/articles/anime-vs-manhwa_thumbnail_hobi_ff9ace15891a4a6f8bf01e8ed70b2a64.jpg?v=1716185823",
       githubUrl: "https://github.com/yourusername/data-viz-board",
       demoUrl: "https://data-viz-board.vercel.app"
     },
@@ -22,7 +22,7 @@ const featuredProjects = [
       title: "Open Source Contribution: Pandas Enhancement",
       description: "Contributed performance improvements to the Pandas library's dataframe operations.",
       tags: ["Python", "Pandas", "Open Source"],
-      imageUrl: "/projects/pandas-contribution.jpg",
+      imageUrl: "https://cdn.pixabay.com/video/2021/08/10/84574-586228759_tiny.jpg",
       githubUrl: "https://github.com/pandas-dev/pandas/pull/12345",
       demoUrl: null
     }
