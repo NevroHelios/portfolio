@@ -94,47 +94,49 @@ export default function Home() {
     <div className="min-h-screen bg-gray-950 text-gray-200">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-violet-900/20 to-blue-900/20"></div>
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-500/50 to-transparent"></div>
-        </div>
-        
-        <div className="container mx-auto px-4 z-10">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+      <div className="relative w-full h-screen bg-black/95 overflow-hidden">
+        {/* Dark city silhouette background effect */}
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-gray-950"></div>
+        <div className="absolute bottom-0 w-full h-72 bg-gradient-to-t from-yellow-500/5 to-transparent"></div>
+
+        {/* Main content container */}
+        <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 text-center">
+          <motion.h1 
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="max-w-3xl mx-auto text-center"
+            className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-600"
           >
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-blue-500">
-                Hello, I'm Arka 
-              </span>
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-gray-300">
-              A Machine Learning Engineer & Full Stack Developer with a passion for building intelligent, data-driven applications.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-gradient-to-r from-violet-600 to-blue-600 hover:from-violet-700 hover:to-blue-700">
-                View My Projects
-              </Button>
-              <Button size="lg" variant="outline" className="border-violet-500 text-violet-400 hover:bg-violet-950/50">
-                Read My Blog
-              </Button>
-            </div>
-            <div className="flex justify-center gap-4 mt-8">
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <GithubIcon className="w-5 h-5" />
-              </Button>
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <LinkedinIcon className="w-5 h-5" />
-              </Button>
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <MailIcon className="w-5 h-5" />
-              </Button>
-            </div>
+            Arka
+          </motion.h1>
+          <motion.p 
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-xl md:text-2xl text-gray-400 mb-8 max-w-2xl"
+          >
+            Machine Learning Engineer & Full Stack Developer
+          </motion.p>
+          
+          {/* Social links */}
+          <motion.div 
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex gap-4"
+          >
+            <Button variant="ghost" size="lg" className="border border-yellow-700/30 hover:bg-yellow-500/10">
+        <GithubIcon className="mr-2 h-5 w-5" /> GitHub
+            </Button>
+            <Button variant="ghost" size="lg" className="border border-yellow-700/30 hover:bg-yellow-500/10">
+        <LinkedinIcon className="mr-2 h-5 w-5" /> LinkedIn
+            </Button>
           </motion.div>
         </div>
+
+        {/* Animated particles effect */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-yellow-500/10 via-transparent to-transparent animate-pulse"></div>
+      </div>
       </section>
 
       {/* About Section */}
