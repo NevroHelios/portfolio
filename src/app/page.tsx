@@ -36,17 +36,15 @@ const itemVariants = {
   }
 };
 
-// Custom hook for scroll animations
+// Custom hook for scroll animations - modified to only animate once
 const useScrollAnimation = () => {
   const controls = useAnimation();
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, amount: 0.2 });
+  const isInView = useInView(ref, { once: true, amount: 0.2 });
   
   useEffect(() => {
     if (isInView) {
       controls.start("visible");
-    } else {
-      controls.start("hidden");
     }
   }, [controls, isInView]);
   
@@ -167,7 +165,9 @@ export default function Home() {
             
             <div className="text-center mt-12">
               <Button variant="outline" className="bg-dark border-yellow-500 text-yellow-400 hover:bg-yellow-900/20 hover:text-yellow uppercase tracking-wide font-medium">
+                <a href="/blog">
                 Read All Posts
+                </a>
               </Button>
             </div>
           </motion.div>

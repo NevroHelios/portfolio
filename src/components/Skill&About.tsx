@@ -13,8 +13,6 @@ const useScrollAnimation = () => {
   useEffect(() => {
     if (isInView) {
       controls.start("visible");
-    } else {
-      controls.start("hidden");
     }
   }, [controls, isInView]);
   

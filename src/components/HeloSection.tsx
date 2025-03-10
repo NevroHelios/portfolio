@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Button } from './ui/button';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 
+
 const BatLogo = () => (
   <svg 
     viewBox="0 0 100 60" 
@@ -57,14 +58,17 @@ const HeroSection = () => {
             className="w-32 h-px bg-gradient-to-r from-transparent via-[#ffcc00] to-transparent mb-6"
           ></motion.div>
           
-          <motion.p 
+          <motion.div 
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl text-gray-400 mb-8 max-w-2xl"
+            className="mb-8 relative inline-block group"
           >
-            Machine Learning Engineer & Full Stack Developer
-          </motion.p>
+            <p className="text-xl md:text-2xl text-gray-400 max-w-2xl">
+              Machine Learning Engineer & Full Stack Developer
+            </p>
+            {/* Animated underline */}
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-700 delay-100 group-hover:w-full"></span></motion.div>
           
           <motion.div 
             initial={{ y: 20, opacity: 0 }}
@@ -88,13 +92,13 @@ const HeroSection = () => {
             </Button>
           </motion.div>
 
-          {/* Scroll indicator */}
+          {/* Scroll indicator - only animate once */}
           <motion.div
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 0, y: 0 }}
             animate={{ opacity: 1, y: [0, 10, 0] }}
             transition={{ 
               opacity: { delay: 1.5, duration: 1 },
-              y: { delay: 1.5, duration: 1.5, repeat: Infinity, repeatType: "loop" }
+              y: { delay: 1.5, duration: 1.5, repeat: 4, repeatType: "loop" }
             }}
             className="absolute bottom-12"
           >
@@ -107,7 +111,7 @@ const HeroSection = () => {
           </motion.div>
         </div>
 
-        {/* Bat silhouettes flying animation */}
+        {/* Bat silhouettes flying animation - keep these animated for visual interest */}
         <motion.div 
           className="absolute right-10 top-1/4 text-[#ffcc00]/10"
           initial={{ x: 100, y: 0 }}

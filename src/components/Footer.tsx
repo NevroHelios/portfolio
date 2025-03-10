@@ -79,9 +79,11 @@ const Footer = () => {
       </div>
       
       <div>
-        <h3 className="text-xl font-bold mb-4 relative inline-block group text-white">
-          Connect
-          <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
+        <h3 className="text-xl font-bold mb-4 relative inline-block text-white">
+          <span className="relative group inline-block">
+            Connect
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
+          </span>
         </h3>
         <div className="flex gap-4">
           <a 
