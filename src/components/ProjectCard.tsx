@@ -47,11 +47,11 @@ const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
       </div>
       </CardContent>
       
-      <CardFooter className="p-6 pt-0 flex justify-between gap-4 bg-black/95">
+      <CardFooter className="p-2 pt-2 flex justify-between gap-4 bg-black/45">
       <Button 
         variant="outline" 
         size="sm" 
-        className="flex-1 border-gray-800 hover:bg-yellow-500 hover:text-black transition-colors"
+        className="flex-1 border-gray-900 bg-gray-300 hover:bg-yellow-500 hover:text-black transition-colors"
         asChild
       >
         <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
