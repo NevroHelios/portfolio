@@ -7,7 +7,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "[Your Name] - Machine Learning Engineer & Full Stack Developer",
+  title: "Arka Dash - Machine Learning Engineer & Full Stack Developer",
   description: "Portfolio website showcasing projects and blog posts in machine learning, data science, and web development.",
 };
 

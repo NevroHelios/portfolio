@@ -17,59 +17,121 @@ const recentBlogPosts = [
   }
 ];
 
+const PLACE_HOLDER_IMAGE = "https://static1.colliderimages.com/wordpress/wp-content/uploads/2022/08/Jujutsu-Kaisen.jpg"
+
 const featuredProjects = [
   {
     id: 1,
-    title: "Code-Relay 3.0",
-    description: "Real-time collaborative coding platform used by 200+ students. Led development at KGEC Development Team.",
-    tags: ["React", "Express.js", "Docker", "Full-Stack Development"],
-    imageUrl: "https://cdn.pixabay.com/video/2021/08/10/84574-586228759_tiny.jpg", // Replace with actual image URL
-    githubUrl: "https://github.com/NevroHelios/code-relay-3.0", // Replace with actual GitHub URL
+    title: "Data Ingestion AWS",
+    description: "CSV Processing System with AWS and Terraform. Utilizes AWS Lambda, S3, DynamoDB, and LocalStack.",
+    tags: ["AWS", "Terraform", "HCL", "Data Processing"],
+    imageUrl: "image.png",
+    githubUrl: "https://github.com/NevroHelios/data-ingestion-aws",
     demoUrl: null
   },
   {
     id: 2,
-    title: "Spam Detection System",
-    description: "Flask/PyTorch NLP model achieving 92% classification accuracy. Integrated NLTK and TF-IDF. Implemented CI/CD with GitHub Actions.",
-    tags: ["Python", "PyTorch", "NLP", "Flask", "CI/CD"],
-    imageUrl: "https://hobiverse.com.vn/cdn/shop/articles/anime-vs-manhwa_thumbnail_hobi_ff9ace15891a4a6f8bf01e8ed70b2a64.jpg?v=1716185823", // Replace with actual image URL
-    githubUrl: "https://github.com/NevroHelios/Spam-Detection", // Replace with actual GitHub URL
+    title: "Used Car Price Prediction",
+    description: "Jupyter Notebook project for predicting used car prices using statistical modeling and machine learning.",
+    tags: ["Python", "Jupyter Notebook", "Statistical Modeling", "Machine Learning"],
+    imageUrl: PLACE_HOLDER_IMAGE,
+    githubUrl: "https://github.com/NevroHelios/Used-Car-Price-Prediction-endToEnd",
     demoUrl: null
   },
   {
     id: 3,
-    title: "SAR-Colorization",
-    description: "GAN-based multispectral image enhancement framework (MIT Licensed). Optimized inference speed by 35% using ONNX runtime.",
-    tags: ["Python", "GAN", "ONNX", "Computer Vision"],
-    imageUrl: "https://static1.colliderimages.com/wordpress/wp-content/uploads/2022/08/Jujutsu-Kaisen.jpg", // Replace with actual image URL
-    githubUrl: "https://github.com/NevroHelios/SAR-Colorization", // Replace with actual GitHub URL
+    title: "Check Octo",
+    description: "Python application for detecting plastic garbage, utilizing machine learning techniques.",
+    tags: ["Python", "Machine Learning", "Environmental Monitoring"],
+    imageUrl: PLACE_HOLDER_IMAGE,
+    githubUrl: "https://github.com/NevroHelios/check-octo",
     demoUrl: null
   },
   {
     id: 4,
-    title: "Pantalaimon Fork",
-    description: "Implemented E2EE media handling improvements, enhanced CBC mode cipher security, and reduced client decryption latency.",
-    tags: ["Python", "E2EE", "Security", "Multithreading", "Open Source"],
-    imageUrl: "https://static.vecteezy.com/system/resources/previews/048/493/769/non_2x/beautiful-landscape-in-anime-style-with-green-grass-big-and-yellow-tree-photo.jpeg", // Replace with actual image URL
-    githubUrl: "https://github.com/NevroHelios/pantalaimon", // Replace with actual GitHub URL
+    title: "SAR-Colorization",
+    description: "GAN-based multispectral image enhancement framework (MIT Licensed).",
+    tags: ["Python", "GAN", "Computer Vision"],
+    imageUrl: PLACE_HOLDER_IMAGE,
+    githubUrl: "https://github.com/NevroHelios/SAR-Colorization",
+    demoUrl: null
+  },
+  {
+    id: 5,
+    title: "Spam Detection System",
+    description: "Flask/PyTorch NLP model for spam email detection. Integrated NLTK and implemented CI/CD with GitHub Actions.",
+    tags: ["Python", "PyTorch", "NLP", "Flask", "CI/CD"],
+    imageUrl: PLACE_HOLDER_IMAGE,
+    githubUrl: "https://github.com/NevroHelios/Spam-Detection",
+    demoUrl: null
+  },
+  {
+    id: 6,
+    title: "Pantalaimon",
+    description: "E2EE aware proxy daemon for matrix clients. Implemented improvements in media handling and reduced client decryption latency.",
+    tags: ["Python", "E2EE", "Security", "Multithreading"],
+    imageUrl: PLACE_HOLDER_IMAGE,
+    githubUrl: "https://github.com/NevroHelios/pantalaimon",
+    demoUrl: null
+  },
+  {
+    id: 7,
+    title: "Code-Relay 3.0",
+    description: "Real-time collaborative coding platform. Led development at KGEC Development Team.",
+    tags: ["TypeScript", "React", "Express.js", "Full-Stack Development"],
+    imageUrl: PLACE_HOLDER_IMAGE,
+    githubUrl: "https://github.com/NevroHelios/code-relay-3.0",
+    demoUrl: null
+  },
+  {
+    id: 8,
+    title: "GitGet Backend",
+    description: "TypeScript backend for GitGet application, focusing on robust API design and data management.",
+    tags: ["TypeScript", "API Design", "Data Management"],
+    imageUrl: PLACE_HOLDER_IMAGE,
+    githubUrl: "https://github.com/NevroHelios/gitget-backend",
+    demoUrl: null
+  },
+  {
+    id: 9,
+    title: "GitGet Frontend",
+    description: "TypeScript frontend for GitGet application, emphasizing user experience and UI design.",
+    tags: ["TypeScript", "UI/UX", "Frontend Development"],
+    imageUrl: PLACE_HOLDER_IMAGE,
+    githubUrl: "https://github.com/NevroHelios/gitget-frontend",
+    demoUrl: null
+  },
+  {
+    id: 10,
+    title: "Facial Reconstruction",
+    description: "Python project focusing on facial reconstruction techniques using computer vision and machine learning.",
+    tags: ["Python", "Computer Vision", "Machine Learning", "Facial Reconstruction"],
+    imageUrl: PLACE_HOLDER_IMAGE,
+    githubUrl: "https://github.com/NevroHelios/facial-reconstruction",
+    demoUrl: null
+  },
+  {
+    id: 11,
+    title: "Cart-Pole PPO",
+    description: "Python implementation of the PPO algorithm for the Cart-Pole environment, focusing on reinforcement learning.",
+    tags: ["Python", "Reinforcement Learning", "PPO"],
+    imageUrl: PLACE_HOLDER_IMAGE,
+    githubUrl: "https://github.com/NevroHelios/cart-pole-PPO",
     demoUrl: null
   }
 ];
 
+
 const skills = {
-  "Languages": ["Python", "TypeScript", "JavaScript", "SQL", "Go"],
+  "Languages": ["Python", "C", "TypeScript", "SQL", "Go", "Rust"],
   "Frameworks/Libraries": ["PyTorch", "React", "Flask", "Express.js", "TensorFlow", "Pandas", "NumPy", "NLTK", "OpenCV"],
   "Tools": ["Docker", "GitHub Actions", "ESLint", "Jupyter", "Git"],
   "Concepts": ["E2EE", "CI/CD", "REST APIs", "Web3", "Data Structures", "NLP", "Statistical Modeling"]
 };
 
 const achievements = [
-  "GitHub Pull Shark Award (2x) for open-source contributions",
-  "Quickdraw Award for rapid issue resolution (avg. 2.1h response time)",
   "LeetCode 1500+ rating (Top 15% globally)",
   "Won Code Relay 3.0 Hackathon organized by IIT Bhubaneswar",
-  "Implemented E2EE media handling improvements, resulting in successful upstream merge",
-  "Reduced client decryption latency by 40% through multithreading optimizations"
 ];
 
 export { featuredProjects, recentBlogPosts, skills, achievements };

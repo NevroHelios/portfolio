@@ -70,8 +70,8 @@ const Footer = () => {
           <span className="text-2xl font-bold text-white group-hover:text-yellow-500 transition-colors duration-300">ARKA</span>
         </div>
         <div className="text-gray-400 mb-2">
-          <a href="mailto:arka@example.com" className="relative group hover:text-yellow-500 transition-colors duration-300">
-            arka@example.com
+          <a href="mailto:arkadash1173@gmail.com" className="relative group hover:text-yellow-500 transition-colors duration-300">
+            arkadash1173@gmail.com
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
           </a>
         </div>
@@ -87,21 +87,21 @@ const Footer = () => {
         </h3>
         <div className="flex gap-4">
           <a 
-            href="#" 
+            href="https://www.github.com/nevrohelios" 
             className="text-yellow-400 hover:text-yellow-300 transition-colors duration-300 transform hover:scale-110 hover:rotate-6"
             style={{ transitionProperty: 'color, transform, rotate' }}
           >
             <GithubIcon className="w-6 h-6" />
           </a>
           <a 
-            href="#" 
+            href="https://www.linkedin.com/in/arka-dash/" 
             className="text-yellow-400 hover:text-yellow-300 transition-colors duration-300 transform hover:scale-110 hover:rotate-6"
             style={{ transitionProperty: 'color, transform, rotate' }}
           >
             <LinkedinIcon className="w-6 h-6" />
           </a>
           <a 
-            href="#" 
+            href="mailto:dasharka05@gmail.com" 
             className="text-yellow-400 hover:text-yellow-300 transition-colors duration-300 transform hover:scale-110 hover:rotate-6"
             style={{ transitionProperty: 'color, transform, rotate' }}
           >

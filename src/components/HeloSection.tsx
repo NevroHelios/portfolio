@@ -81,20 +81,24 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex gap-4"
           >
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="border bg-dark border-[#ffcc00]/30 hover:text-yellow text-[#ffcc00] hover:bg-[#ffcc00]/10 hover:border-[#ffcc00]"
-            >
-              <FaGithub className="mr-2 h-5 w-5" /> GitHub
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="border bg-dark border-[#ffcc00]/30 hover:text-yellow text-[#ffcc00] hover:bg-[#ffcc00]/10 hover:border-[#ffcc00]"
-            >
-              <FaLinkedinIn className="mr-2 h-5 w-5" /> LinkedIn
-            </Button>
+            <a href="https://www.github.com/nevrohelios" target="_blank" rel="noopener noreferrer">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="border bg-dark border-[#ffcc00]/30 hover:text-yellow text-[#ffcc00] hover:bg-[#ffcc00]/10 hover:border-[#ffcc00]"
+                >
+                <FaGithub className="mr-2 h-5 w-5" /> GitHub
+              </Button>
+            </a>
+            <a href="https://www.linkedin.com/in/arka-dash/" target="_blank" rel="noopener noreferrer">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="border bg-dark border-[#ffcc00]/30 hover:text-yellow text-[#ffcc00] hover:bg-[#ffcc00]/10 hover:border-[#ffcc00]"
+                >
+                <FaLinkedinIn className="mr-2 h-5 w-5" /> LinkedIn
+              </Button>
+            </a>
           </motion.div>
 
           {/* Scroll indicator - only animate once */}
@@ -107,10 +111,20 @@ const HeroSection = () => {
             }}
             className="absolute bottom-12"
           >
-            <div className="flex flex-col items-center">
+            <div 
+              className="flex flex-col items-center cursor-pointer" 
+              onClick={() => {
+              window.scrollTo({
+                top: window.innerHeight,
+                behavior: "smooth"
+              });
+              }}
+              role="button"
+              aria-label="Scroll down"
+            >
               <span className="text-[#ffcc00]/70 text-sm tracking-widest mb-2">SCROLL</span>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 5L12 19M12 19L19 12M12 19L5 12" stroke="#ffcc00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M12 5L12 19M12 19L19 12M12 19L5 12" stroke="#ffcc00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
           </motion.div>

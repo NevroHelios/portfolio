@@ -1,7 +1,7 @@
 import { motion, useAnimation, useInView } from 'framer-motion';
 import SkillBadge from './SkillBadge';
 import BatLogo from './BatLogo';
-import { featuredProjects, recentBlogPosts, skills } from "@/data/data";
+import { featuredProjects, recentBlogPosts, skills, achievements } from "@/data/data";
 import { useEffect, useRef } from 'react';
 
 // Custom hook for scroll animations
@@ -63,9 +63,9 @@ const Skill_About = () => {
           >
             <motion.div variants={itemVariants} className="flex items-center justify-center mb-10">
               <div className="h-px bg-yellow-500 w-12 mr-4"></div>
-              <h2 className="text-3xl font-bold text-white uppercase tracking-wider">
-                The Batman
-              </h2>
+                <h2 className="text-3xl font-bold text-white uppercase tracking-wider">
+                About & Skills
+                </h2>
               <div className="h-px bg-yellow-500 w-12 ml-4"></div>
             </motion.div>
             
@@ -95,11 +95,24 @@ const Skill_About = () => {
                   
                   <div className="relative z-10">
                     <p className="text-lg text-gray-300 mb-4 leading-relaxed">
-                      I'm a dual degree graduate specializing in Machine Learning and Data Science with a strong foundation in full-stack development. My technical journey spans from developing deep learning models to building responsive web applications.
+                      I'm a <span className="text-yellow-400 font-bold">dual degree</span> graduate specializing in <span className="text-yellow-400 font-bold">Machine Learning</span> and <span className="text-yellow-400 font-bold">Data Science</span> with a strong foundation in full-stack development. My technical journey spans from developing deep learning models to building responsive web applications.
                     </p>
                     <p className="text-lg text-gray-300 mb-4 leading-relaxed">
-                      With experience in PyTorch, pandas, and the React ecosystem, I hunt down complex problems at the intersection of data science and software engineering. I'm particularly driven to create intuitive interfaces for complex systems.
+                      With experience in PyTorch, pandas, and the React ecosystem, I hunt down complex problems at the intersection of <span className="text-yellow-400 font-bold">data science</span> and software engineering. I'm particularly driven to create intuitive interfaces for complex systems.
                     </p>
+                    
+                    <h4 className="text-xl font-medium mt-6 mb-4 text-yellow-400 uppercase tracking-wide flex items-center">
+                      <BatLogo className="w-6 h-6 mr-2" />
+                      Achievements
+                    </h4>
+                    <ul className="space-y-2">
+                      {achievements.map((achievement, index) => (
+                        <li key={index} className="flex items-start">
+                          <span className="text-yellow-500 mr-2">▹</span>
+                          <span className="text-gray-300">{achievement}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </motion.div>
                 
