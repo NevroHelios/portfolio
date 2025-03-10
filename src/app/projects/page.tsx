@@ -102,7 +102,7 @@ export default function ProjectsPage() {
     <div className="min-h-screen bg-black text-gray-300">
       {/* Hero Section */}
       <section className="relative py-24 backdrop-blur-sm">
-        <div className="absolute inset-0 bg-[url('/https://img.posterstore.com/zoom/wb0043-8batman-gothamcityskyline50x70-81979-93867.jpg')] bg-no-repeat bg-cover opacity-10 z-0"></div>
+        <div className="absolute inset-0 bg-no-repeat bg-cover opacity-10 z-0"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-zinc-900/40 to-black/90"></div>
         
         <div className="container mx-auto px-6 relative z-10">
@@ -134,7 +134,7 @@ export default function ProjectsPage() {
       
       {/* Projects Grid */}
       <section className="py-16 bg-zinc-900/30 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/https://img.posterstore.com/zoom/wb0043-8batman-gothamcityskyline50x70-81979-93867.jpg')] bg-repeat opacity-5"></div>
+        <div className="absolute inset-0 bg-repeat opacity-5"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-black to-zinc-900 opacity-80"></div>
         
         <div className="container mx-auto px-4 relative z-10">
@@ -153,12 +153,6 @@ export default function ProjectsPage() {
                 <ProjectCard project={project} key={index} />
               ))}
             </div>
-            
-            {filteredProjects.length === 0 && (
-              <div className="text-center py-16">
-                <p className="text-gray-400 text-xl">No cases in this category yet.</p>
-              </div>
-            )}
           </motion.div>
         </div>
       </section>
