@@ -95,7 +95,7 @@ export default function Home() {
               animate={projectsContainerAnimation.controls}
               className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
-              {featuredProjects.map((project, index) => (
+                {featuredProjects.slice(0, 3).map((project, index) => (
                 <motion.div 
                   key={project.id} 
                   variants={itemVariants}
@@ -103,7 +103,7 @@ export default function Home() {
                 >
                   <ProjectCard project={project} />
                 </motion.div>
-              ))}
+                ))}
             </motion.div>
             
             <div className="text-center mt-12">

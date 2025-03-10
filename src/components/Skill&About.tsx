@@ -114,14 +114,19 @@ const Skill_About = () => {
                   <div className="relative z-10">
                     <h3 className="font-medium text-xl mb-6 text-yellow-400 uppercase tracking-wide flex items-center">
                       <BatLogo className="w-4 h-4 mr-2 text-yellow-500" />
-                      Training
+                      Education
                     </h3>
                     <div className="mb-6 pb-6 border-b border-zinc-700">
-                      <p className="font-bold text-white">Dual Degree in Computer Science</p>
-                      <p className="text-yellow-400/80">University Name</p>
-                      <p className="text-sm text-gray-500">2018 - 2023</p>
+                      <p className="font-bold text-white">Data Science</p>
+                      <p className="text-yellow-400/80">IIT Madras</p>
+                      <p className="text-sm text-gray-500">2023 - 2027</p>
                     </div>
-                    <h3 className="font-medium text-xl mb-6 text-yellow-400 uppercase tracking-wide flex items-center">
+                    <div className="mb-6 pb-6 border-b border-zinc-700">
+                      <p className="font-bold text-white">Computer Sciene and Engineering</p>
+                      <p className="text-yellow-400/80">Kalyani Government Engineering College</p>
+                      <p className="text-sm text-gray-500">2023 - 2027</p>
+                    </div>
+                    {/* <h3 className="font-medium text-xl mb-6 text-yellow-400 uppercase tracking-wide flex items-center">
                       <BatLogo className="w-4 h-4 mr-2 text-yellow-500" />
                       Operations
                     </h3>
@@ -129,7 +134,7 @@ const Skill_About = () => {
                       <p className="font-bold text-white">Machine Learning Engineer</p>
                       <p className="text-yellow-400/80">Company Name</p>
                       <p className="text-sm text-gray-500">2023 - Present</p>
-                    </div>
+                    </div> */}
                   </div>
                 </motion.div>
               </motion.div>
