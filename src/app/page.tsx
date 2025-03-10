@@ -1,11 +1,13 @@
 "use client"
 import { Button } from "@/components/ui/button";
-import { GithubIcon, LinkedinIcon, MailIcon } from "lucide-react";
+import { GithubIcon, LinkedinIcon, MailIcon, TwitterIcon } from "lucide-react";
 import ProjectCard from "@/components/ProjectCard";
 import SkillBadge from "@/components/SkillBadge";
 import BlogPostCard from "@/components/BlogPostCard";
 import { motion } from "framer-motion";
-import { MapPin, MapPinIcon, TwitterIcon } from "lucide-react";
+import { MapPin } from "lucide-react";
+import HeroSection from "@/components/HeloSection";
+import { featuredProjects, recentBlogPosts, skills } from "@/data/data";
 
 // Define animation variants for staggered animations
 const containerVariants = {
@@ -30,151 +32,71 @@ const itemVariants = {
   }
 };
 
+// Bat logo SVG component
+const BatLogo = ({ className }: { className: string }) => (
+  <svg 
+    viewBox="0 0 100 60" 
+    className={className}
+    fill="currentColor"
+  >
+    <path d="M50 0C40 0 42 8 36 8C30 8 30 4 24 4C18 4 16 8 12 8C8 8 0 4 0 16C0 28 20 30 24 46C26 54 30 60 50 60C70 60 74 54 76 46C80 30 100 28 100 16C100 4 92 8 88 8C84 8 82 4 76 4C70 4 70 8 64 8C58 8 60 0 50 0Z"/>
+  </svg>
+);
+
 export default function Home() {
-  // Sample projects data
-  const featuredProjects = [
-    {
-      id: 1,
-      title: "Machine Learning Image Classifier",
-      description: "A PyTorch-based image classification system with 98% accuracy on the test dataset.",
-      tags: ["PyTorch", "Python", "Computer Vision"],
-      imageUrl: "/projects/ml-image-classifier.jpg",
-      githubUrl: "https://github.com/yourusername/ml-image-classifier",
-      demoUrl: "https://ml-image-classifier-demo.vercel.app"
-    },
-    {
-      id: 2,
-      title: "Data Visualization board",
-      description: "Interactive board built with Next.js and D3.js for visualizing complex datasets.",
-      tags: ["Next.js", "TypeScript", "D3.js", "Tailwind CSS"],
-      imageUrl: "/projects/data-viz-board.jpg",
-      githubUrl: "https://github.com/yourusername/data-viz-board",
-      demoUrl: "https://data-viz-board.vercel.app"
-    },
-    {
-      id: 3,
-      title: "Open Source Contribution: Pandas Enhancement",
-      description: "Contributed performance improvements to the Pandas library's dataframe operations.",
-      tags: ["Python", "Pandas", "Open Source"],
-      imageUrl: "/projects/pandas-contribution.jpg",
-      githubUrl: "https://github.com/pandas-dev/pandas/pull/12345",
-      demoUrl: null
-    }
-  ];
-
-  // Sample blog posts data
-  const recentBlogPosts = [
-    {
-      id: 1,
-      title: "Optimizing PyTorch Models for Production",
-      excerpt: "Learn how to optimize your PyTorch models for production environments with these advanced techniques.",
-      date: "2025-02-15",
-      readTime: "8 min",
-      slug: "optimizing-pytorch-models"
-    },
-    {
-      id: 2,
-      title: "Building Type-Safe APIs with TypeScript and Next.js",
-      excerpt: "A comprehensive guide to creating robust, type-safe APIs using TypeScript and Next.js.",
-      date: "2025-01-28",
-      readTime: "12 min",
-      slug: "type-safe-apis-typescript-nextjs"
-    }
-  ];
-
-  // Skills grouped by category
-  const skills = {
-    "Machine Learning & Data Science": ["PyTorch", "TensorFlow", "Scikit-learn", "Data Analysis"],
-    "Languages & Frameworks": ["Python", "TypeScript", "JavaScript", "Next.js", "React"],
-    "Tools & Libraries": ["Pandas", "NumPy", "Git", "Docker", "Tailwind CSS"],
-    "Other": ["Open Source Contribution", "CI/CD", "Cloud Deployment", "Technical Writing"]
-  };
-
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-200">
+    <div className="min-h-screen bg-black text-gray-300">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      <div className="relative w-full h-screen bg-black/95 overflow-hidden">
-        {/* Dark city silhouette background effect */}
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-gray-950"></div>
-        <div className="absolute bottom-0 w-full h-72 bg-gradient-to-t from-yellow-500/5 to-transparent"></div>
-
-        {/* Main content container */}
-        <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 text-center">
-          <motion.h1 
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-600"
-          >
-            Arka
-          </motion.h1>
-          <motion.p 
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl text-gray-400 mb-8 max-w-2xl"
-          >
-            Machine Learning Engineer & Full Stack Developer
-          </motion.p>
-          
-          {/* Social links */}
-          <motion.div 
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex gap-4"
-          >
-            <Button variant="ghost" size="lg" className="border border-yellow-700/30 hover:bg-yellow-500/10">
-        <GithubIcon className="mr-2 h-5 w-5" /> GitHub
-            </Button>
-            <Button variant="ghost" size="lg" className="border border-yellow-700/30 hover:bg-yellow-500/10">
-        <LinkedinIcon className="mr-2 h-5 w-5" /> LinkedIn
-            </Button>
-          </motion.div>
-        </div>
-
-        {/* Animated particles effect */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-yellow-500/10 via-transparent to-transparent animate-pulse"></div>
-      </div>
-      </section>
-
+      <HeroSection />
+      
       {/* About Section */}
-      <section id="about" className="py-20 bg-gray-900/50">
-        <div className="container mx-auto px-4">
+      <section id="about" className="py-20 bg-zinc-900/30 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/gotham-skyline.png')] bg-no-repeat bg-cover opacity-10"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto"
           >
-            <h2 className="text-3xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-blue-500">
-              About Me
-            </h2>
-            <div className="grid md:grid-cols-[2fr,1fr] gap-8 items-center">
-              <div>
-                <p className="text-lg text-gray-300 mb-4">
+            <div className="flex items-center justify-center mb-10">
+              <div className="h-px bg-yellow-500 w-12 mr-4"></div>
+              <h2 className="text-3xl font-bold text-white uppercase tracking-wider">
+                The Identity
+              </h2>
+              <div className="h-px bg-yellow-500 w-12 ml-4"></div>
+            </div>
+            
+            <div className="grid md:grid-cols-[2fr,1fr] gap-10 items-start">
+              <div className="bg-zinc-900/80 p-8 rounded border-l-4 border-yellow-500 shadow-xl">
+                <p className="text-lg text-gray-300 mb-4 leading-relaxed">
                   I'm a dual degree graduate specializing in Machine Learning and Data Science with a strong foundation in full-stack development. My technical journey spans from developing deep learning models to building responsive web applications.
                 </p>
-                <p className="text-lg text-gray-300 mb-4">
-                  With experience in PyTorch, pandas, and the React ecosystem, I love solving complex problems at the intersection of data science and software engineering. I'm particularly passionate about creating intuitive interfaces for complex systems.
+                <p className="text-lg text-gray-300 mb-4 leading-relaxed">
+                  With experience in PyTorch, pandas, and the React ecosystem, I hunt down complex problems at the intersection of data science and software engineering. I'm particularly driven to create intuitive interfaces for complex systems.
                 </p>
-                <p className="text-lg text-gray-300">
-                  I actively contribute to open-source projects and share my knowledge through technical writing and blog posts. My goal is to leverage technology to create meaningful impact through intelligent applications.
+                <p className="text-lg text-gray-300 leading-relaxed">
+                  I emerge from the shadows to contribute to open-source projects and share knowledge through technical writing. My mission: to leverage technology to create meaningful impact through intelligent applications.
                 </p>
               </div>
-              <div className="bg-gray-800 p-6 rounded-lg shadow-xl">
-                <h3 className="font-medium text-xl mb-4 text-violet-300">Education</h3>
-                <div className="mb-4">
-                  <p className="font-medium">Dual Degree in Computer Science</p>
-                  <p className="text-gray-400">University Name</p>
+              <div className="bg-zinc-900/80 p-8 rounded shadow-xl border-t border-r border-b border-yellow-500/30">
+                <h3 className="font-medium text-xl mb-6 text-yellow-400 uppercase tracking-wide flex items-center">
+                  <BatLogo className="w-4 h-4 mr-2 text-yellow-500" />
+                  Training
+                </h3>
+                <div className="mb-6 pb-6 border-b border-zinc-700">
+                  <p className="font-bold text-white">Dual Degree in Computer Science</p>
+                  <p className="text-yellow-400/80">University Name</p>
                   <p className="text-sm text-gray-500">2018 - 2023</p>
                 </div>
-                <h3 className="font-medium text-xl mb-4 text-violet-300">Experience</h3>
+                <h3 className="font-medium text-xl mb-6 text-yellow-400 uppercase tracking-wide flex items-center">
+                  <BatLogo className="w-4 h-4 mr-2 text-yellow-500" />
+                  Operations
+                </h3>
                 <div>
-                  <p className="font-medium">Machine Learning Engineer</p>
-                  <p className="text-gray-400">Company Name</p>
+                  <p className="font-bold text-white">Machine Learning Engineer</p>
+                  <p className="text-yellow-400/80">Company Name</p>
                   <p className="text-sm text-gray-500">2023 - Present</p>
                 </div>
               </div>
@@ -184,27 +106,43 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 bg-gray-950">
-        <div className="container mx-auto px-4">
+      <section id="skills" className="py-20 bg-black relative">
+        <div className="absolute inset-0 bg-[url('/bat-pattern.png')] bg-repeat opacity-5"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl font-bold mb-12 text-center text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-blue-500">
-              Skills & Expertise
-            </h2>
+            <div className="flex items-center justify-center mb-10">
+              <div className="h-px bg-yellow-500 w-12 mr-4"></div>
+              <h2 className="text-3xl font-bold text-white uppercase tracking-wider">
+                The Arsenal
+              </h2>
+              <div className="h-px bg-yellow-500 w-12 ml-4"></div>
+            </div>
+            
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              {Object.entries(skills).map(([category, categorySkills]) => (
-                <div key={category} className="bg-gray-900/70 p-6 rounded-lg shadow-lg border border-gray-800">
-                  <h3 className="text-xl font-medium mb-4 text-violet-300">{category}</h3>
+              {Object.entries(skills).map(([category, categorySkills], index) => (
+                <motion.div 
+                  key={category} 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-zinc-900/50 p-8 rounded shadow-lg border-l border-r border-yellow-500/20"
+                >
+                  <h3 className="text-xl font-medium mb-6 text-yellow-400 uppercase tracking-wide flex items-center">
+                    <BatLogo className="w-4 h-4 mr-2 text-yellow-500" />
+                    {category}
+                  </h3>
                   <div className="flex flex-wrap gap-2">
                     {categorySkills.map((skill) => (
                       <SkillBadge key={skill} name={skill} />
                     ))}
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.div>
@@ -212,19 +150,24 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-20 bg-gray-900/50">
-        <div className="container mx-auto px-4">
+      <section id="projects" className="py-20 bg-zinc-900/30 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-black to-zinc-900 opacity-80"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-blue-500">
-              Featured Projects
-            </h2>
+            <div className="flex items-center justify-center mb-6">
+              <div className="h-px bg-yellow-500 w-12 mr-4"></div>
+              <h2 className="text-3xl font-bold text-white uppercase tracking-wider">
+                The Cases
+              </h2>
+              <div className="h-px bg-yellow-500 w-12 ml-4"></div>
+            </div>
             <p className="text-gray-400 max-w-2xl mx-auto text-center mb-12">
-              A selection of my recent work spanning machine learning, data science, and web development.
+              A selection of my recent missions spanning machine learning, data science, and web development.
             </p>
             
             <motion.div 
@@ -234,15 +177,19 @@ export default function Home() {
               viewport={{ once: true }}
               className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
             >
-              {featuredProjects.map((project) => (
-                <motion.div key={project.id} variants={itemVariants}>
+              {featuredProjects.map((project, index) => (
+                <motion.div 
+                  key={project.id} 
+                  variants={itemVariants}
+                  className="transform transition-all duration-300 hover:translate-y-[-8px]"
+                >
                   <ProjectCard project={project} />
                 </motion.div>
               ))}
             </motion.div>
             
             <div className="text-center mt-12">
-              <Button variant="outline" className="border-violet-500 text-violet-400 hover:bg-violet-950/50">
+              <Button variant="outline" className="bg-dark border-yellow-500 text-yellow-400 hover:text-yellow hover:bg-yellow-900/20 uppercase tracking-wide font-medium">
                 View All Projects
               </Button>
             </div>
@@ -251,29 +198,42 @@ export default function Home() {
       </section>
 
       {/* Blog Section */}
-      <section id="blog" className="py-20 bg-gray-950">
-        <div className="container mx-auto px-4">
+      <section id="blog" className="py-20 bg-black relative">
+        <div className="absolute inset-0 bg-[url('/gotham-grid.png')] bg-repeat opacity-5"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-blue-500">
-              Latest Blog Posts
-            </h2>
+            <div className="flex items-center justify-center mb-6">
+              <div className="h-px bg-yellow-500 w-12 mr-4"></div>
+              <h2 className="text-3xl font-bold text-white uppercase tracking-wider">
+                The Chronicles
+              </h2>
+              <div className="h-px bg-yellow-500 w-12 ml-4"></div>
+            </div>
             <p className="text-gray-400 max-w-2xl mx-auto text-center mb-12">
-              I share my thoughts and insights on machine learning, data science, and software development.
+              I share my insights on machine learning, data science, and software development from the shadows.
             </p>
             
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              {recentBlogPosts.map((post) => (
-                <BlogPostCard key={post.id} post={post} />
+              {recentBlogPosts.map((post, index) => (
+                <motion.div 
+                  key={post.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <BlogPostCard key={post.id} post={post} />
+                </motion.div>
               ))}
             </div>
             
             <div className="text-center mt-12">
-              <Button variant="outline" className="border-violet-500 text-violet-400 hover:bg-violet-950/50">
+              <Button variant="outline" className="bg-dark border-yellow-500 text-yellow-400 hover:bg-yellow-900/20 hover:text-yellow uppercase tracking-wide font-medium">
                 Read All Posts
               </Button>
             </div>
@@ -281,129 +241,116 @@ export default function Home() {
         </div>
       </section>
 
- {/* Contact Section */}
-<section id="contact" className="py-20 bg-gray-900/50">
-  <div className="container mx-auto px-4">
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      className="max-w-6xl mx-auto" // Increased max width
-    >
-      <h2 className="text-3xl font-bold mb-6 text-center text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-blue-500">
-        Let's Work Together
-      </h2>
-      <p className="text-gray-400 text-center mb-12 text-lg">
-        Have a project in mind? I'm always open to discussing new opportunities and ideas.
-      </p>
-      
-      <div className="grid md:grid-cols-[2fr,1fr] gap-8"> {/* Grid container for form and contact info */}
-        <div className="bg-gray-900/90 p-8 rounded-xl shadow-2xl border border-gray-800/50 backdrop-blur-sm">
-          <form className="space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label htmlFor="name" className="block text-sm font-medium text-violet-300">Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  placeholder="John Doe"
-                  className="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-2.5 text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-transparent transition-all"
-                />
+      {/* Contact Section - New Addition */}
+      {/* <section id="contact" className="py-20 bg-zinc-900/30 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/bat-signal.png')] bg-no-repeat bg-center opacity-5"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="flex items-center justify-center mb-6">
+              <div className="h-px bg-yellow-500 w-12 mr-4"></div>
+              <h2 className="text-3xl font-bold text-white uppercase tracking-wider">
+                The Signal
+              </h2>
+              <div className="h-px bg-yellow-500 w-12 ml-4"></div>
+            </div>
+            <p className="text-gray-400 max-w-2xl mx-auto text-center mb-12">
+              Need my assistance? Shine the signal and I'll emerge from the shadows.
+            </p>
+            
+            <div className="max-w-4xl mx-auto bg-zinc-900/80 rounded-lg shadow-2xl border border-yellow-500/20 p-8">
+              <div className="grid md:grid-cols-2 gap-10">
+                <div>
+                  <h3 className="text-xl font-medium mb-6 text-yellow-400 uppercase tracking-wide">Send a Message</h3>
+                  <form className="space-y-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-400 mb-1">Name</label>
+                      <input type="text" className="w-full bg-black/50 border border-zinc-700 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500/50 focus:border-transparent" />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-400 mb-1">Email</label>
+                      <input type="email" className="w-full bg-black/50 border border-zinc-700 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500/50 focus:border-transparent" />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-400 mb-1">Message</label>
+                      <textarea rows={4} className="w-full bg-black/50 border border-zinc-700 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500/50 focus:border-transparent"></textarea>
+                    </div>
+                    <Button className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold uppercase tracking-wide">
+                      Send Signal
+                    </Button>
+                  </form>
+                </div>
+                <div className="flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-xl font-medium mb-6 text-yellow-400 uppercase tracking-wide">Contact Details</h3>
+                    <div className="space-y-4">
+                      <div className="flex items-start">
+                        <MailIcon className="w-5 h-5 text-yellow-500 mt-1 mr-3" />
+                        <div>
+                          <p className="font-medium text-white">Email</p>
+                          <p className="text-gray-400">contact@arka.dev</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start">
+                        <MapPin className="w-5 h-5 text-yellow-500 mt-1 mr-3" />
+                        <div>
+                          <p className="font-medium text-white">Location</p>
+                          <p className="text-gray-400">Gotham City</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mt-6 md:mt-0">
+                    <h3 className="text-xl font-medium mb-4 text-yellow-400 uppercase tracking-wide">Connect</h3>
+                    <div className="flex gap-4">
+                      <Button variant="outline" size="icon" className="rounded-full border-zinc-700 hover:border-yellow-500 hover:bg-yellow-500/10">
+                        <GithubIcon className="w-5 h-5 text-yellow-400" />
+                      </Button>
+                      <Button variant="outline" size="icon" className="rounded-full border-zinc-700 hover:border-yellow-500 hover:bg-yellow-500/10">
+                        <LinkedinIcon className="w-5 h-5 text-yellow-400" />
+                      </Button>
+                      <Button variant="outline" size="icon" className="rounded-full border-zinc-700 hover:border-yellow-500 hover:bg-yellow-500/10">
+                        <TwitterIcon className="w-5 h-5 text-yellow-400" />
+                      </Button>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="space-y-2">
-                <label htmlFor="email" className="block text-sm font-medium text-violet-300">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  placeholder="john@example.com"
-                  className="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-2.5 text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-transparent transition-all"
-                />
-              </div>
             </div>
-            
-            <div className="space-y-2">
-              <label htmlFor="subject" className="block text-sm font-medium text-violet-300">Subject</label>
-              <input
-                type="text"
-                id="subject"
-                placeholder="Project Discussion"
-                className="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-2.5 text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-transparent transition-all"
-              />
-            </div>
-            
-            <div className="space-y-2">
-              <label htmlFor="message" className="block text-sm font-medium text-violet-300">Message</label>
-              <textarea
-                id="message"
-                rows={4}
-                placeholder="Tell me about your project..."
-                className="w-full bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-2.5 text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-transparent transition-all resize-none"
-              ></textarea>
-            </div>
-            
-            <Button 
-              className="w-full bg-gradient-to-r from-violet-600 to-blue-600 hover:from-violet-700 hover:to-blue-700 py-4 text-lg font-medium transition-all duration-300 shadow-lg hover:shadow-violet-500/25"
-            >
-              Send Message
-            </Button>
-          </form>
+          </motion.div>
         </div>
-
-        <div className="bg-gray-900/90 p-8 rounded-xl shadow-2xl border border-gray-800/50 backdrop-blur-sm">
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-violet-400 font-medium mb-2">Email</h3>
-              <p className="text-gray-400">contact@example.com</p>
-            </div>
-            <div>
-              <h3 className="text-violet-400 font-medium mb-2">Location</h3>
-              <p className="text-gray-400">San Francisco, CA</p>
-            </div>
-            <div>
-              <h3 className="text-violet-400 font-medium mb-2">Social</h3>
-              <div className="flex gap-4">
-                <Button variant="ghost" size="icon" className="rounded-full hover:bg-violet-500/10">
-                  <GithubIcon className="w-5 h-5" />
-                </Button>
-                <Button variant="ghost" size="icon" className="rounded-full hover:bg-violet-500/10">
-                  <LinkedinIcon className="w-5 h-5" />
-                </Button>
-                <Button variant="ghost" size="icon" className="rounded-full hover:bg-violet-500/10">
-                  <MailIcon className="w-5 h-5" />
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  </div>
-</section>
+      </section> */}
 
       {/* Footer */}
-      <footer className="py-10 bg-gray-950 border-t border-gray-800">
+      <footer className="py-10 bg-black border-t border-zinc-800">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-6 md:mb-0">
-              <h3 className="text-2xl font-bold text-white">Arka </h3>
-              <p className="text-gray-400 mt-2">Machine Learning Engineer & Full Stack Developer</p>
+            <div className="mb-6 md:mb-0 flex items-center">
+              <BatLogo className="w-8 h-8 text-yellow-500 mr-3" />
+              <div>
+                <h3 className="text-2xl font-bold text-white">ARKA</h3>
+                <p className="text-gray-400 mt-1">Machine Learning Engineer & Full Stack Developer</p>
+              </div>
             </div>
             <div className="flex gap-6">
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <GithubIcon className="w-5 h-5" />
+              <Button variant="ghost" size="icon" className="rounded-full hover:bg-yellow-500/10">
+                <GithubIcon className="w-5 h-5 text-yellow-400" />
               </Button>
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <LinkedinIcon className="w-5 h-5" />
+              <Button variant="ghost" size="icon" className="rounded-full hover:bg-yellow-500/10">
+                <LinkedinIcon className="w-5 h-5 text-yellow-400" />
               </Button>
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <MailIcon className="w-5 h-5" />
+              <Button variant="ghost" size="icon" className="rounded-full hover:bg-yellow-500/10">
+                <MailIcon className="w-5 h-5 text-yellow-400" />
               </Button>
             </div>
           </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
-            <p>© {new Date().getFullYear()} Arka . All rights reserved.</p>
-            <p className="mt-2">Built with Next.js, TypeScript, and Tailwind CSS</p>
+          <div className="border-t border-zinc-800 mt-8 pt-8 text-center text-gray-500 text-sm">
+            <p>© {new Date().getFullYear()} Arka. All rights reserved.</p>
+            <p className="mt-2">Crafted in the shadows with Next.js, TypeScript, and Tailwind CSS</p>
           </div>
         </div>
       </footer>
