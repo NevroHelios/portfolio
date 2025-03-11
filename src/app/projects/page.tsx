@@ -1,50 +1,19 @@
 "use client"
 
 import React, { useState, useEffect, useRef } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
 import { motion, useAnimation, useInView } from 'framer-motion';
 import { 
   featuredProjects,
 } from '@/data/data';
 import Footer from '@/components/Footer';
-import BatLogo from '@/components/BatLogo';
 import ProjectCard from '@/components/ProjectCard';
-
-// Define TypeScript interfaces
-interface ProjectBadge {
-  color: string;
-  text: string;
-}
-
-interface Project {
-  id: string;
-  title: string;
-  description: string;
-  image: string;
-  tags: string[];
-  team?: string[];
-  github?: string;
-  demoLink?: string;
-  badge?: ProjectBadge;
-}
-
-interface ProjectCardProps {
-  project: Project;
-  index: number;
-}
-
-interface FilterButtonProps {
-  active: boolean;
-  onClick: () => void;
-  children: React.ReactNode;
-}
+import { Navbar } from '@/components/Navbar';
 
 // Custom hook for scroll animations
 const useScrollAnimation = () => {
   const controls = useAnimation();
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, amount: 0.2 });
+  const isInView = useInView(ref, { once: false, amount: 0.04 });
   
   useEffect(() => {
     if (isInView) {
@@ -56,50 +25,18 @@ const useScrollAnimation = () => {
 };
 
 
-// Filter Button Component
-const FilterButton: React.FC<FilterButtonProps> = ({ active, onClick, children }) => (
-  <button
-    onClick={onClick}
-    className={`px-6 py-2 rounded-md text-sm font-medium transition-colors uppercase tracking-wide ${
-      active
-        ? "bg-yellow-600 text-black" 
-        : "bg-zinc-800 text-yellow-400 hover:bg-zinc-700 border border-yellow-500/30"
-    }`}
-  >
-    {children}
-  </button>
-);
 
 // Main Projects Page Component
 export default function ProjectsPage() {
-  type FilterType = "featured" | "future";
-  const [filter, setFilter] = useState<FilterType>("featured");
-  const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
   
   const heroAnimation = useScrollAnimation();
   const projectsAnimation = useScrollAnimation();
   const ctaAnimation = useScrollAnimation();
 
-  useEffect(() => {
-    // Map the featured projects to match the Project interface
-    const mappedProjects: Project[] = featuredProjects.map(project => ({
-      id: String(project.id),
-      title: project.title,
-      description: project.description,
-      image: project.imageUrl,
-      tags: project.tags,
-      github: project.githubUrl,
-      demoLink: project.demoUrl || undefined
-    }));
-    
-    // Filter projects based on selection
-    // For now, just showing all featured projects regardless of filter
-    // In a real application, you would have different project categories
-    setFilteredProjects(mappedProjects);
-  }, [filter]);
 
   return (
     <div className="min-h-screen bg-black text-gray-300">
+      <Navbar />
       {/* Hero Section */}
       <section className="relative py-24 backdrop-blur-sm">
         <div className="absolute inset-0 bg-no-repeat bg-cover opacity-10 z-0"></div>

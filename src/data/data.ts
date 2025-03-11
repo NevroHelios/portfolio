@@ -17,7 +17,7 @@ const recentBlogPosts = [
   }
 ];
 
-const PLACE_HOLDER_IMAGE = "https://static1.colliderimages.com/wordpress/wp-content/uploads/2022/08/Jujutsu-Kaisen.jpg"
+const PLACE_HOLDER_IMAGE = "https://img.posterstore.com/zoom/wb0043-8batman-gothamcityskyline50x70-81979-93867.jpg"
 
 const featuredProjects = [
   {
@@ -74,51 +74,51 @@ const featuredProjects = [
     githubUrl: "https://github.com/NevroHelios/pantalaimon",
     demoUrl: null
   },
-  // {
-  //   id: 7,
-  //   title: "Code-Relay 3.0",
-  //   description: "Real-time collaborative coding platform. Led development at KGEC Development Team.",
-  //   tags: ["TypeScript", "React", "Express.js", "Full-Stack Development"],
-  //   imageUrl: PLACE_HOLDER_IMAGE,
-  //   githubUrl: "https://github.com/NevroHelios/code-relay-3.0",
-  //   demoUrl: null
-  // },
-  // {
-  //   id: 8,
-  //   title: "GitGet Backend",
-  //   description: "TypeScript backend for GitGet application, focusing on robust API design and data management.",
-  //   tags: ["TypeScript", "API Design", "Data Management"],
-  //   imageUrl: PLACE_HOLDER_IMAGE,
-  //   githubUrl: "https://github.com/NevroHelios/gitget-backend",
-  //   demoUrl: null
-  // },
-  // {
-  //   id: 9,
-  //   title: "GitGet Frontend",
-  //   description: "TypeScript frontend for GitGet application, emphasizing user experience and UI design.",
-  //   tags: ["TypeScript", "UI/UX", "Frontend Development"],
-  //   imageUrl: PLACE_HOLDER_IMAGE,
-  //   githubUrl: "https://github.com/NevroHelios/gitget-frontend",
-  //   demoUrl: null
-  // },
-  // {
-  //   id: 10,
-  //   title: "Facial Reconstruction",
-  //   description: "Python project focusing on facial reconstruction techniques using computer vision and machine learning.",
-  //   tags: ["Python", "Computer Vision", "Machine Learning", "Facial Reconstruction"],
-  //   imageUrl: PLACE_HOLDER_IMAGE,
-  //   githubUrl: "https://github.com/NevroHelios/facial-reconstruction",
-  //   demoUrl: null
-  // },
-  // {
-  //   id: 11,
-  //   title: "Cart-Pole PPO",
-  //   description: "Python implementation of the PPO algorithm for the Cart-Pole environment, focusing on reinforcement learning.",
-  //   tags: ["Python", "Reinforcement Learning", "PPO"],
-  //   imageUrl: PLACE_HOLDER_IMAGE,
-  //   githubUrl: "https://github.com/NevroHelios/cart-pole-PPO",
-  //   demoUrl: null
-  // }
+  {
+    id: 7,
+    title: "Code-Relay 3.0",
+    description: "Real-time collaborative coding platform. Led development at KGEC Development Team.",
+    tags: ["TypeScript", "React", "Express.js", "Full-Stack Development"],
+    imageUrl: PLACE_HOLDER_IMAGE,
+    githubUrl: "https://github.com/NevroHelios/code-relay-3.0",
+    demoUrl: null
+  },
+  {
+    id: 8,
+    title: "GitGet Backend",
+    description: "TypeScript backend for GitGet application, focusing on robust API design and data management.",
+    tags: ["TypeScript", "API Design", "Data Management"],
+    imageUrl: PLACE_HOLDER_IMAGE,
+    githubUrl: "https://github.com/NevroHelios/gitget-backend",
+    demoUrl: null
+  },
+  {
+    id: 9,
+    title: "GitGet Frontend",
+    description: "TypeScript frontend for GitGet application, emphasizing user experience and UI design.",
+    tags: ["TypeScript", "UI/UX", "Frontend Development"],
+    imageUrl: PLACE_HOLDER_IMAGE,
+    githubUrl: "https://github.com/NevroHelios/gitget-frontend",
+    demoUrl: null
+  },
+  {
+    id: 10,
+    title: "Facial Reconstruction",
+    description: "Python project focusing on facial reconstruction techniques using computer vision and machine learning.",
+    tags: ["Python", "Computer Vision", "Machine Learning", "Facial Reconstruction"],
+    imageUrl: PLACE_HOLDER_IMAGE,
+    githubUrl: "https://github.com/NevroHelios/facial-reconstruction",
+    demoUrl: null
+  },
+  {
+    id: 11,
+    title: "Cart-Pole PPO",
+    description: "Python implementation of the PPO algorithm for the Cart-Pole environment, focusing on reinforcement learning.",
+    tags: ["Python", "Reinforcement Learning", "PPO"],
+    imageUrl: PLACE_HOLDER_IMAGE,
+    githubUrl: "https://github.com/NevroHelios/cart-pole-PPO",
+    demoUrl: null
+  }
 ];
 
 

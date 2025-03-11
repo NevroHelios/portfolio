@@ -50,7 +50,7 @@ const Skill_About = () => {
   return (
     <>
       {/* Combined About & Skills Section */}
-      <section id="about-skills" className="py-20 bg-zinc-900/30 relative overflow-hidden">
+      <section id="about" className="py-20 bg-zinc-900/30 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/gotham-skyline.png')] bg-no-repeat bg-cover opacity-10"></div>
         <div className="absolute inset-0 bg-[url('/bat-pattern.png')] bg-repeat opacity-5 mask-radial-gradient"></div>
         <div className="container mx-auto px-4 relative z-10">

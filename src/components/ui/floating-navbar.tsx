@@ -57,7 +57,7 @@ export const FloatingNav = ({
           duration: 0.2,
         }}
         className={cn(
-          "flex max-w-fit fixed top-10 inset-x-0 mx-auto border border-gray-800 rounded-full bg-[#1a1a1a] shadow-[0px_2px_15px_-3px_rgba(0,0,0,0.4)] z-[5000] pr-2 pl-8 py-2 items-center justify-center space-x-4",
+          "flex max-w-fit fixed top-10 inset-x-0 mx-auto border border-zinc-800 rounded-full bg-black/80 backdrop-blur-sm shadow-[0px_2px_15px_-3px_rgba(0,0,0,0.6)] z-[5000] px-6 py-3 items-center justify-center space-x-6",
           className
         )}
       >
@@ -66,17 +66,17 @@ export const FloatingNav = ({
             key={`link=${idx}`}
             href={navItem.link}
             className={cn(
-              "relative text-gray-400 items-center flex space-x-1 hover:text-cyan-400 transition-colors"
+              "relative flex flex-col items-center justify-center text-gray-400 hover:text-yellow-500 transition-colors"
             )}
           >
-            <span className="block sm:hidden">{navItem.icon}</span>
-            <span className="hidden sm:block text-sm">{navItem.name}</span>
+            <span className="flex items-center justify-center">{navItem.icon}</span>
+            <span className="text-xs mt-1 hidden sm:block">{navItem.name}</span>
           </Link>
         ))}
-        <button className="border text-sm font-medium relative border-gray-800 text-gray-200 px-4 py-2 rounded-full hover:border-cyan-500 transition-colors">
+        {/* <button className="border text-sm font-medium relative border-gray-800 text-gray-200 px-4 py-2 rounded-full hover:border-cyan-500 transition-colors">
           <span>Login</span>
           <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-cyan-500 to-transparent h-px" />
-        </button>
+        </button> */}
       </motion.div>
     </AnimatePresence>
   );
