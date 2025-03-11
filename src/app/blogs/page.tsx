@@ -1,6 +1,6 @@
 "use client"
 
-import { FloatingNavDemo } from "../../components/Navbar";
+import { Navbar } from "../../components/Navbar";
 import { DataFlowAnimation } from "@/components/DataFlowAnimation";
 
 export default function Projects() {
@@ -11,7 +11,7 @@ export default function Projects() {
       </div>
       {/* <FloatingNavDemo /> */}
       <div className="relative z-10 h-full w-full pt-28">
-        <FloatingNavDemo />
+        <Navbar />
       </div>
     </div>
   );
