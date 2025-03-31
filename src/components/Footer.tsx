@@ -76,7 +76,7 @@ const Footer = () => {
           </a>
         </div>
         <p className="text-gray-400">Machine Learning Engineer & Full Stack Developer</p>
-        <p className="text-blue-200" >I use Arch BTW</p>
+        <p className="text-blue-200" >i use arch btw</p>
       </div>
       
       <div>
