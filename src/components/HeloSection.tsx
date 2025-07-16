@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Button } from './ui/button';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
+import { MapPin } from 'lucide-react';
 // import Bat from '../../public/Bat.svg';
 
 
@@ -43,6 +44,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
+            className="mb-6"
           >
             <BatLogo />
           </motion.div>
@@ -51,7 +53,7 @@ const HeroSection = () => {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl md:text-7xl font-bold mb-6 text-white"
+            className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 text-white px-4"
           >
             <span className="text-[#ffcc00]">AR</span>KA
           </motion.h1>
@@ -60,43 +62,57 @@ const HeroSection = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="w-32 h-px bg-gradient-to-r from-transparent via-[#ffcc00] to-transparent mb-6"
+            className="w-24 sm:w-32 h-px bg-gradient-to-r from-transparent via-[#ffcc00] to-transparent mb-6"
           ></motion.div>
           
           <motion.div 
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-8 relative inline-block group"
+            className="mb-6 relative inline-block group"
           >
-            <p className="text-xl md:text-2xl text-gray-400 max-w-2xl">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-400 max-w-2xl px-4">
               Machine Learning Engineer & Full Stack Developer
             </p>
             {/* Animated underline */}
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-700 delay-100 group-hover:w-full"></span></motion.div>
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-700 delay-100 group-hover:w-full"></span>
+          </motion.div>
+
+          {/* Location Pin */}
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="flex items-center justify-center mb-8 text-gray-400 group cursor-default"
+          >
+            <MapPin className="h-4 w-4 sm:h-5 sm:w-5 mr-2 text-[#ffcc00] group-hover:scale-110 transition-transform duration-300" />
+            <span className="text-sm sm:text-base group-hover:text-gray-300 transition-colors duration-300">
+              Kolkata, India
+            </span>
+          </motion.div>
           
           <motion.div 
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex gap-4"
+            className="flex flex-col sm:flex-row gap-4 px-4"
           >
             <a href="https://www.github.com/nevrohelios" target="_blank" rel="noopener noreferrer">
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="border bg-dark border-[#ffcc00]/30 hover:text-yellow text-[#ffcc00] hover:bg-[#ffcc00]/10 hover:border-[#ffcc00]"
+                className="border bg-dark border-[#ffcc00]/30 hover:text-yellow text-[#ffcc00] hover:bg-[#ffcc00]/10 hover:border-[#ffcc00] w-full sm:w-auto"
                 >
-                <FaGithub className="mr-2 h-5 w-5" /> GitHub
+                <FaGithub className="mr-2 h-4 w-4 sm:h-5 sm:w-5" /> GitHub
               </Button>
             </a>
             <a href="https://www.linkedin.com/in/arka-dash/" target="_blank" rel="noopener noreferrer">
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="border bg-dark border-[#ffcc00]/30 hover:text-yellow text-[#ffcc00] hover:bg-[#ffcc00]/10 hover:border-[#ffcc00]"
+                className="border bg-dark border-[#ffcc00]/30 hover:text-yellow text-[#ffcc00] hover:bg-[#ffcc00]/10 hover:border-[#ffcc00] w-full sm:w-auto"
                 >
-                <FaLinkedinIn className="mr-2 h-5 w-5" /> LinkedIn
+                <FaLinkedinIn className="mr-2 h-4 w-4 sm:h-5 sm:w-5" /> LinkedIn
               </Button>
             </a>
           </motion.div>
@@ -109,7 +125,7 @@ const HeroSection = () => {
               opacity: { delay: 1.5, duration: 1 },
               y: { delay: 1.5, duration: 1.5, repeat: 4, repeatType: "loop" }
             }}
-            className="absolute bottom-12"
+            className="absolute bottom-8 sm:bottom-12"
           >
             <div 
               className="flex flex-col items-center cursor-pointer" 
@@ -122,8 +138,8 @@ const HeroSection = () => {
               role="button"
               aria-label="Scroll down"
             >
-              <span className="text-[#ffcc00]/70 text-sm tracking-widest mb-2">SCROLL</span>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <span className="text-[#ffcc00]/70 text-xs sm:text-sm tracking-widest mb-2">SCROLL</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="sm:w-6 sm:h-6">
               <path d="M12 5L12 19M12 19L19 12M12 19L5 12" stroke="#ffcc00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
@@ -132,23 +148,23 @@ const HeroSection = () => {
 
         {/* Bat silhouettes flying animation - keep these animated for visual interest */}
         <motion.div 
-          className="absolute right-10 top-1/4 text-[#ffcc00]/10"
+          className="absolute right-4 sm:right-10 top-1/4 text-[#ffcc00]/10"
           initial={{ x: 100, y: 0 }}
           animate={{ x: -100, y: 50 }}
           transition={{ duration: 15, repeat: Infinity, repeatType: "reverse" }}
         >
-          <svg width="30" height="15" viewBox="0 0 100 60" fill="currentColor">
+          <svg width="24" height="12" viewBox="0 0 100 60" fill="currentColor" className="sm:w-8 sm:h-4">
             <path d="M50 0C40 0 42 8 36 8C30 8 30 4 24 4C18 4 16 8 12 8C8 8 0 4 0 16C0 28 20 30 24 46C26 54 30 60 50 60C70 60 74 54 76 46C80 30 100 28 100 16C100 4 92 8 88 8C84 8 82 4 76 4C70 4 70 8 64 8C58 8 60 0 50 0Z"/>
           </svg>
         </motion.div>
         
         <motion.div 
-          className="absolute left-20 top-1/3 text-[#ffcc00]/10"
+          className="absolute left-4 sm:left-20 top-1/3 text-[#ffcc00]/10"
           initial={{ x: -50, y: 0 }}
           animate={{ x: 80, y: 30 }}
           transition={{ duration: 18, repeat: Infinity, repeatType: "reverse", delay: 2 }}
         >
-          <svg width="20" height="10" viewBox="0 0 100 60" fill="currentColor">
+          <svg width="16" height="8" viewBox="0 0 100 60" fill="currentColor" className="sm:w-5 sm:h-3">
             <path d="M50 0C40 0 42 8 36 8C30 8 30 4 24 4C18 4 16 8 12 8C8 8 0 4 0 16C0 28 20 30 24 46C26 54 30 60 50 60C70 60 74 54 76 46C80 30 100 28 100 16C100 4 92 8 88 8C84 8 82 4 76 4C70 4 70 8 64 8C58 8 60 0 50 0Z"/>
           </svg>
         </motion.div>

@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 interface Project {
   id: number;
   title: string;
-  description: string;
+  description: string[];
   tags: string[];
   imageUrl: string;
   githubUrl: string;
@@ -33,8 +33,15 @@ const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
       </div>
       
       <CardContent className="flex-grow p-6 bg-gradient-to-b from-black/80 to-gray-900/90">
-      <h3 className="text-xl font-bold mb-2 text-yellow-500">{project.title}</h3>
-      <p className="text-gray-400 mb-4">{project.description}</p>
+      <h3 className="text-xl font-bold mb-3 text-yellow-500">{project.title}</h3>
+      <ul className="text-gray-400 mb-4 space-y-1 text-sm">
+        {project.description.map((point, index) => (
+          <li key={index} className="flex items-start">
+            <span className="text-yellow-400 mr-2 mt-1 text-xs">•</span>
+            <span className="leading-relaxed">{point}</span>
+          </li>
+        ))}
+      </ul>
       <div className="flex flex-wrap gap-2 mt-auto">
         {project.tags.map((tag) => (
         <span 

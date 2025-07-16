@@ -23,8 +23,65 @@ const PLACE_HOLDER_IMAGE = "archlinux.png" // "https://img.posterstore.com/zoom/
 
 const _featuredProjects = [
   {
+    title: "Sticker Sales Forecasting",
+    description: [
+      "Top 120 rank in Kaggle competition",
+      "Time series forecasting with ARIMA & Prophet",
+      "Feature engineering: sinusoidal & economic factors",
+      "EDA with 15+ visualization techniques"
+    ],
+    tags: ["Python", "Scikit-learn", "Pandas", "NumPy", "Streamlit", "Matplotlib", "Seaborn", "Plotly"],
+    imageUrl: 'k-ps5.png',
+    githubUrl: "https://github.com/NevroHelios/sales-forecasting",
+    demoUrl: "https://nevrohelios-p5e1.streamlit.app/"
+  },
+  {
+    title: "Real-time Sentiment Analysis Application",
+    description: [
+      "<10ms response time with ONNX optimization",
+      "React frontend + FastAPI backend",
+      "Transformer model inference optimization",
+      "Docker containerization + CI/CD pipeline"
+    ],
+    tags: ["Python", "FastAPI", "React", "ONNX Runtime", "Docker", "CI/CD"],
+    imageUrl: 'sent-clf.png',
+    githubUrl: "https://github.com/NevroHelios/Sentiment-analysis-realtime",
+    demoUrl: null
+  },
+  {
+    title: "RAG Institute: Hybrid Retrieval System",
+    description: [
+      "Neo4j graph DB for entity relations",
+      "Vector search for semantic similarity",
+      "LLM integration for document Q&A",
+      "Hybrid retrieval architecture"
+    ],
+    tags: ["Python", "LangChain", "Neo4j", "LlamaIndex", "Docker"],
+    imageUrl: "visualisation.png",
+    githubUrl: "https://github.com/NevroHelios/rag-agent",
+    demoUrl: null
+  },
+  {
+    title: "Deep-Viz: Explainable AI Tool",
+    description: [
+      "SmoothGradCAM++ implementation",
+      "Integrated Gradients visualization",
+      "Interactive Streamlit dashboard",
+      "CNN model explainability analysis"
+    ],
+    tags: ["Python", "PyTorch", "Captum", "Streamlit"],
+    imageUrl: PLACE_HOLDER_IMAGE,
+    githubUrl: "https://github.com/NevroHelios/deep-viz",
+    demoUrl: null
+  },
+  {
     title: "Data Ingestion AWS",
-    description: "CSV Processing System with AWS and Terraform. Utilizes AWS Lambda, S3, DynamoDB, and LocalStack.",
+    description: [
+      "AWS Lambda + S3 + DynamoDB architecture",
+      "Terraform IaC deployment",
+      "LocalStack for local testing",
+      "Automated CSV processing pipeline"
+    ],
     tags: ["AWS", "Terraform", "HCL", "Data Processing"],
     imageUrl: "image.png",
     githubUrl: "https://github.com/NevroHelios/data-ingestion-aws",
@@ -32,7 +89,12 @@ const _featuredProjects = [
   },
   {
     title: "Customer Profiling",
-    description: "Customer Segmentation and Profiling using K-Means Clustering and DBSCAN.",
+    description: [
+      "K-Means & DBSCAN clustering algorithms",
+      "Customer segmentation analysis",
+      "Interactive Streamlit deployment",
+      "Real-time profiling dashboard"
+    ],
     tags: ["Python", "Machine Learning", "Clustering", "Kmeans", "DBSCAN"],
     imageUrl: "profiling.png",
     githubUrl: "https://github.com/NevroHelios/customer-profiling",
@@ -40,23 +102,25 @@ const _featuredProjects = [
   },
   {
     title: "Used Car Price Prediction",
-    description: "Jupyter Notebook project for predicting used car prices using statistical modeling and machine learning.",
+    description: [
+      "End-to-end ML pipeline in Jupyter",
+      "Statistical modeling & regression analysis",
+      "Feature engineering & data preprocessing",
+      "Model evaluation & validation"
+    ],
     tags: ["Python", "Jupyter Notebook", "Statistical Modeling", "Machine Learning"],
     imageUrl: "zenml.png",
     githubUrl: "https://github.com/NevroHelios/Used-Car-Price-Prediction-endToEnd",
     demoUrl: null
   },
   {
-    title: "Check Octo",
-    description: "Python application for detecting plastic garbage, utilizing machine learning techniques.",
-    tags: ["Python", "Machine Learning", "Environmental Monitoring"],
-    imageUrl: PLACE_HOLDER_IMAGE,
-    githubUrl: "https://github.com/NevroHelios/check-octo",
-    demoUrl: null
-  },
-  {
     title: "SAR-Colorization",
-    description: "GAN-based multispectral image enhancement framework (MIT Licensed).",
+    description: [
+      "GAN-based image enhancement",
+      "Multispectral image processing",
+      "MIT Licensed framework",
+      "Computer vision pipeline"
+    ],
     tags: ["Python", "GAN", "Computer Vision"],
     imageUrl: PLACE_HOLDER_IMAGE,
     githubUrl: "https://github.com/NevroHelios/SAR-Colorization",
@@ -64,7 +128,12 @@ const _featuredProjects = [
   },
   {
     title: "Facial Reconstruction",
-    description: "Python project focusing on facial reconstruction techniques using computer vision and machine learning.",
+    description: [
+      "CV-based facial reconstruction",
+      "ML model implementation",
+      "Image processing algorithms",
+      "Deep learning techniques"
+    ],
     tags: ["Python", "Computer Vision", "Machine Learning", "Facial Reconstruction"],
     imageUrl: PLACE_HOLDER_IMAGE,
     githubUrl: "https://github.com/NevroHelios/facial-reconstruction",
@@ -72,67 +141,46 @@ const _featuredProjects = [
   },
   {
     title: "Spam Detection System",
-    description: "Flask/PyTorch NLP model for spam email detection. Integrated NLTK and implemented CI/CD with GitHub Actions.",
+    description: [
+      "Flask web app with PyTorch NLP",
+      "NLTK integration for text processing",
+      "GitHub Actions CI/CD pipeline",
+      "Real-time email classification"
+    ],
     tags: ["Python", "PyTorch", "NLP", "Flask", "CI/CD"],
     imageUrl: PLACE_HOLDER_IMAGE,
     githubUrl: "https://github.com/NevroHelios/Spam-Detection",
     demoUrl: null
   },
   {
-    title: "Pantalaimon",
-    description: "E2EE aware proxy daemon for matrix clients. Implemented improvements in media handling and reduced client decryption latency.",
-    tags: ["Python", "E2EE", "Security", "Multithreading"],
-    imageUrl: PLACE_HOLDER_IMAGE,
-    githubUrl: "https://github.com/NevroHelios/pantalaimon",
-    demoUrl: null
-  },
-  {
     title: "Code-Relay 3.0",
-    description: "Real-time collaborative coding platform. Led development at KGEC Development Team.",
+    description: [
+      "Real-time collaborative coding platform",
+      "TypeScript + React + Express.js stack",
+      "Led development at KGEC team",
+      "Multi-user synchronization"
+    ],
     tags: ["TypeScript", "React", "Express.js", "Full-Stack Development"],
     imageUrl: PLACE_HOLDER_IMAGE,
     githubUrl: "https://github.com/NevroHelios/code-relay-3.0",
     demoUrl: null
   },
-  // {
-  //   title: "GitGet Backend",
-  //   description: "TypeScript backend for GitGet application, focusing on robust API design and data management.",
-  //   tags: ["TypeScript", "API Design", "Data Management"],
-  //   imageUrl: PLACE_HOLDER_IMAGE,
-  //   githubUrl: "https://github.com/NevroHelios/gitget-backend",
-  //   demoUrl: null
-  // },
-  // {
-  //   title: "GitGet Frontend",
-  //   description: "TypeScript frontend for GitGet application, emphasizing user experience and UI design.",
-  //   tags: ["TypeScript", "UI/UX", "Frontend Development"],
-  //   imageUrl: PLACE_HOLDER_IMAGE,
-  //   githubUrl: "https://github.com/NevroHelios/gitget-frontend",
-  //   demoUrl: null
-  // },
-  // {
-  //   title: "Cart-Pole PPO",
-  //   description: "Python implementation of the PPO algorithm for the Cart-Pole environment, focusing on reinforcement learning.",
-  //   tags: ["Python", "Reinforcement Learning", "PPO"],
-  //   imageUrl: PLACE_HOLDER_IMAGE,
-  //   githubUrl: "https://github.com/NevroHelios/cart-pole-PPO",
-  //   demoUrl: null
-  // }
 ];
 
 const featuredProjects = _featuredProjects.map((project, index) => ({ ...project, id: index + 1 }));
 
-
 const skills = {
-  "Languages": ["Python", "C", "TypeScript", "SQL", "Go", "Rust"],
-  "Frameworks/Libraries": ["PyTorch", "React", "Flask", "Express.js", "TensorFlow", "Pandas", "NumPy", "NLTK", "OpenCV"],
-  "Tools": ["Docker", "GitHub Actions", "ESLint", "Jupyter", "Git"],
-  "Concepts": ["E2EE", "CI/CD", "REST APIs", "Web3", "Data Structures", "NLP", "Statistical Modeling"]
+  "Languages": ["JavaScript", "Python", "TypeScript", "SQL", "HTML/CSS", "Bash"],
+  "Web Development": ["React", "FastAPI", "Flask", "REST APIs", "Responsive Design"],
+  "Tools": ["Git/GitHub", "Docker", "CI/CD (GitHub Actions)", "Linux/Unix"],
+  "Databases": ["SQL", "DynamoDB", "Neo4j", "Qdrant"],
+  "Concepts": ["Scalable Web Apps", "Microservices", "Agile Workflows", "Debugging", "Testing"]
 };
 
 const achievements = [
   "LeetCode 1500+ rating (Top 15% globally)",
   "Won Code Relay 3.0 Hackathon organized by IIT Bhubaneswar",
+  "Achieved top 120 rank in Kaggle Sticker Sales Forecasting competition",
 ];
 
 export { featuredProjects, recentBlogPosts, skills, achievements };

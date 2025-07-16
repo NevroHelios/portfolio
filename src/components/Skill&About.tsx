@@ -130,14 +130,16 @@ const Skill_About = () => {
                       Education
                     </h3>
                     <div className="mb-6 pb-6 border-b border-zinc-700">
-                      <p className="font-bold text-white">Data Science</p>
+                      <p className="font-bold text-white">B.Sc. in Data Science and Programming</p>
                       <p className="text-yellow-400/80">IIT Madras</p>
                       <p className="text-sm text-gray-500">2023 - 2027</p>
+                      <p className="text-sm text-yellow-400/60 font-medium">CGPA: 9.0/10</p>
                     </div>
                     <div className="mb-6 pb-6 border-b border-zinc-700">
-                      <p className="font-bold text-white">Computer Sciene and Engineering</p>
+                      <p className="font-bold text-white">B.Tech in Computer Science</p>
                       <p className="text-yellow-400/80">Kalyani Government Engineering College</p>
                       <p className="text-sm text-gray-500">2023 - 2027</p>
+                      <p className="text-sm text-yellow-400/60 font-medium">CGPA: 8.4/10</p>
                     </div>
                     {/* <h3 className="font-medium text-xl mb-6 text-yellow-400 uppercase tracking-wide flex items-center">
                       <BatLogo className="w-4 h-4 mr-2 text-yellow-500" />

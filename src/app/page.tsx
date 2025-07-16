@@ -63,10 +63,11 @@ export default function Home() {
       
       {/* Combined About & Skills Section */}
       <Skill_About />
+      
       {/* Projects Section */}
-      <section id="projects" className="py-20 bg-zinc-900/30 relative overflow-hidden">
+      <section id="projects" className="py-12 sm:py-16 lg:py-20 bg-zinc-900/30 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black to-zinc-900 opacity-80"></div>
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             ref={projectsAnimation.ref}
             initial="hidden"
@@ -77,14 +78,14 @@ export default function Home() {
             }}
             transition={{ duration: 0.6 }}
           >
-            <div className="flex items-center justify-center mb-6">
-              <div className="h-px bg-yellow-500 w-12 mr-4"></div>
-              <h2 className="text-3xl font-bold text-white uppercase tracking-wider">
+            <div className="flex items-center justify-center mb-6 sm:mb-8">
+              <div className="h-px bg-yellow-500 w-8 sm:w-12 mr-2 sm:mr-4"></div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white uppercase tracking-wider text-center">
                 The Cases
               </h2>
-              <div className="h-px bg-yellow-500 w-12 ml-4"></div>
+              <div className="h-px bg-yellow-500 w-8 sm:w-12 ml-2 sm:ml-4"></div>
             </div>
-            <p className="text-gray-400 max-w-2xl mx-auto text-center mb-12">
+            <p className="text-gray-400 max-w-2xl mx-auto text-center mb-8 sm:mb-12 px-4 text-sm sm:text-base">
               A selection of my recent missions spanning machine learning, data science, and web development.
             </p>
             
@@ -93,7 +94,7 @@ export default function Home() {
               variants={containerVariants}
               initial="hidden"
               animate={projectsContainerAnimation.controls}
-              className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
             >
                 {featuredProjects.slice(0, 3).map((project, index) => (
                 <motion.div 
@@ -106,9 +107,9 @@ export default function Home() {
                 ))}
             </motion.div>
             
-            <div className="text-center mt-12">
-              <Button variant="outline" className="bg-dark border-yellow-500 text-yellow-400 hover:text-yellow hover:bg-yellow-900/20 uppercase tracking-wide font-medium">
-                <a href="/projects">
+            <div className="text-center mt-8 sm:mt-12">
+              <Button variant="outline" className="bg-dark border-yellow-500 text-yellow-400 hover:text-yellow hover:bg-yellow-900/20 uppercase tracking-wide font-medium w-full sm:w-auto">
+                <a href="/projects" className="block w-full">
                 View All Projects
                 </a>
               </Button>
@@ -118,9 +119,9 @@ export default function Home() {
       </section>
 
       {/* Blog Section */}
-      {/* <section id="blog" className="py-20 bg-black relative">
+      {/* <section id="blog" className="py-12 sm:py-16 lg:py-20 bg-black relative">
         <div className="absolute inset-0 bg-[url('/gotham-grid.png')] bg-repeat opacity-5"></div>
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             ref={blogAnimation.ref}
             initial="hidden"
@@ -131,18 +132,18 @@ export default function Home() {
             }}
             transition={{ duration: 0.6 }}
           >
-            <div className="flex items-center justify-center mb-6">
-              <div className="h-px bg-yellow-500 w-12 mr-4"></div>
-              <h2 className="text-3xl font-bold text-white uppercase tracking-wider">
+            <div className="flex items-center justify-center mb-6 sm:mb-8">
+              <div className="h-px bg-yellow-500 w-8 sm:w-12 mr-2 sm:mr-4"></div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white uppercase tracking-wider text-center">
                 The Chronicles
               </h2>
-              <div className="h-px bg-yellow-500 w-12 ml-4"></div>
+              <div className="h-px bg-yellow-500 w-8 sm:w-12 ml-2 sm:ml-4"></div>
             </div>
-            <p className="text-gray-400 max-w-2xl mx-auto text-center mb-12">
+            <p className="text-gray-400 max-w-2xl mx-auto text-center mb-8 sm:mb-12 px-4 text-sm sm:text-base">
               I share my insights on machine learning, data science, and software development from the shadows.
             </p>
             
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
               {recentBlogPosts.map((post, index) => {
                 const postAnimation = useScrollAnimation();
                 return (
@@ -163,9 +164,9 @@ export default function Home() {
               })}
             </div>
             
-            <div className="text-center mt-12">
-              <Button variant="outline" className="bg-dark border-yellow-500 text-yellow-400 hover:bg-yellow-900/20 hover:text-yellow uppercase tracking-wide font-medium">
-                <a href="/blog">
+            <div className="text-center mt-8 sm:mt-12">
+              <Button variant="outline" className="bg-dark border-yellow-500 text-yellow-400 hover:bg-yellow-900/20 hover:text-yellow uppercase tracking-wide font-medium w-full sm:w-auto">
+                <a href="/blog" className="block w-full">
                 Read All Posts
                 </a>
               </Button>
@@ -173,7 +174,6 @@ export default function Home() {
           </motion.div>
         </div>
       </section> */}
-
 
       {/* Footer */}
      <Footer />

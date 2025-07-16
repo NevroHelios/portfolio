@@ -7,7 +7,6 @@ import {
 } from '@/data/data';
 import Footer from '@/components/Footer';
 import ProjectCard from '@/components/ProjectCard';
-import { Navbar } from '@/components/Navbar';
 
 // Custom hook for scroll animations
 const useScrollAnimation = () => {
@@ -24,8 +23,6 @@ const useScrollAnimation = () => {
   return { ref, controls, isInView };
 };
 
-
-
 // Main Projects Page Component
 export default function ProjectsPage() {
   
@@ -33,16 +30,14 @@ export default function ProjectsPage() {
   const projectsAnimation = useScrollAnimation();
   const ctaAnimation = useScrollAnimation();
 
-
   return (
     <div className="min-h-screen bg-black text-gray-300">
-      <Navbar />
       {/* Hero Section */}
-      <section className="relative py-24 backdrop-blur-sm">
+      <section className="relative py-24 pt-32 backdrop-blur-sm">
         <div className="absolute inset-0 bg-no-repeat bg-cover opacity-10 z-0"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-zinc-900/40 to-black/90"></div>
         
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             ref={heroAnimation.ref}
             initial="hidden"
@@ -55,14 +50,14 @@ export default function ProjectsPage() {
             className="max-w-4xl mx-auto text-center"
           >
             <div className="flex items-center justify-center mb-6">
-              <div className="h-px bg-yellow-500 w-12 mr-4"></div>
-              <h2 className="text-3xl font-bold text-white uppercase tracking-wider">
+              <div className="h-px bg-yellow-500 w-8 sm:w-12 mr-2 sm:mr-4"></div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white uppercase tracking-wider">
                 The Cases
               </h2>
-              <div className="h-px bg-yellow-500 w-12 ml-4"></div>
+              <div className="h-px bg-yellow-500 w-8 sm:w-12 ml-2 sm:ml-4"></div>
             </div>
             
-            <p className="text-xl text-gray-300 mb-4">
+            <p className="text-lg sm:text-xl text-gray-300 mb-4 px-4">
               A selection of my most challenging missions across machine learning, data science, and web development
             </p>
           </motion.div>
@@ -70,11 +65,11 @@ export default function ProjectsPage() {
       </section>
       
       {/* Projects Grid */}
-      <section className="py-16 bg-zinc-900/30 relative overflow-hidden">
+      <section className="py-12 sm:py-16 bg-zinc-900/30 relative overflow-hidden">
         <div className="absolute inset-0 bg-repeat opacity-5"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-black to-zinc-900 opacity-80"></div>
         
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             ref={projectsAnimation.ref}
             initial="hidden"
@@ -85,7 +80,7 @@ export default function ProjectsPage() {
             }}
             transition={{ duration: 0.6 }}
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {featuredProjects.map((project, index) => (
                 <ProjectCard project={project} key={index} />
               ))}
@@ -93,7 +88,6 @@ export default function ProjectsPage() {
           </motion.div>
         </div>
       </section>
-      
       
       <Footer />
     </div>
