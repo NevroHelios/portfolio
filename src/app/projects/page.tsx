@@ -1,95 +1,93 @@
-"use client"
+import Link from "next/link";
+import { featuredProjects, experiences, skills } from "@/data/data";
 
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, useAnimation, useInView } from 'framer-motion';
-import { 
-  featuredProjects,
-} from '@/data/data';
-import Footer from '@/components/Footer';
-import ProjectCard from '@/components/ProjectCard';
-
-// Custom hook for scroll animations
-const useScrollAnimation = () => {
-  const controls = useAnimation();
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, amount: 0.04 });
-  
-  useEffect(() => {
-    if (isInView) {
-      controls.start("visible");
-    }
-  }, [controls, isInView]);
-  
-  return { ref, controls, isInView };
-};
-
-// Main Projects Page Component
 export default function ProjectsPage() {
-  
-  const heroAnimation = useScrollAnimation();
-  const projectsAnimation = useScrollAnimation();
-  const ctaAnimation = useScrollAnimation();
-
   return (
-    <div className="min-h-screen bg-black text-gray-300">
-      {/* Hero Section */}
-      <section className="relative py-24 pt-32 backdrop-blur-sm">
-        <div className="absolute inset-0 bg-no-repeat bg-cover opacity-10 z-0"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-900/40 to-black/90"></div>
-        
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div
-            ref={heroAnimation.ref}
-            initial="hidden"
-            animate={heroAnimation.controls}
-            variants={{
-              visible: { opacity: 1, y: 0 },
-              hidden: { opacity: 0, y: -20 }
-            }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto text-center"
-          >
-            <div className="flex items-center justify-center mb-6">
-              <div className="h-px bg-yellow-500 w-8 sm:w-12 mr-2 sm:mr-4"></div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white uppercase tracking-wider">
-                The Cases
-              </h2>
-              <div className="h-px bg-yellow-500 w-8 sm:w-12 ml-2 sm:ml-4"></div>
-            </div>
-            
-            <p className="text-lg sm:text-xl text-gray-300 mb-4 px-4">
-              A selection of my most challenging missions across machine learning, data science, and web development
-            </p>
-          </motion.div>
-        </div>
-      </section>
-      
-      {/* Projects Grid */}
-      <section className="py-12 sm:py-16 bg-zinc-900/30 relative overflow-hidden">
-        <div className="absolute inset-0 bg-repeat opacity-5"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black to-zinc-900 opacity-80"></div>
-        
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div
-            ref={projectsAnimation.ref}
-            initial="hidden"
-            animate={projectsAnimation.controls}
-            variants={{
-              visible: { opacity: 1 },
-              hidden: { opacity: 0 }
-            }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {featuredProjects.map((project, index) => (
-                <ProjectCard project={project} key={index} />
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-      
-      <Footer />
-    </div>
+    <main className="portfolio-body">
+      <div className="portfolio-container">
+        <nav className="portfolio-nav">
+          <div className="portfolio-nav-links">
+            <Link href="/">Home</Link>
+            <Link href="/projects" className="active">
+              Work
+            </Link>
+            <Link href="/blogs">Research</Link>
+          </div>
+        </nav>
+
+        {experiences.length > 0 && (
+          <section>
+            <h1>Experience</h1>
+            {experiences.map((exp) => (
+              <article key={exp.id} className="portfolio-project-item">
+                <h3>{exp.role}</h3>
+                <p className="portfolio-project-meta">
+                  {exp.company} · {exp.period}
+                </p>
+                <ul>
+                  {exp.description.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </section>
+        )}
+
+        <section>
+          <h2>Projects</h2>
+          {featuredProjects.map((project) => (
+            <article key={project.id} className="portfolio-project-item">
+              <h3>{project.title}</h3>
+              <p className="portfolio-project-meta">
+                {project.stack.join(" · ")}
+              </p>
+              <p>{project.oneLiner}</p>
+              <p className="portfolio-project-links">
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub
+                  </a>
+                )}
+                {project.githubUrl && project.demoUrl && " · "}
+                {project.demoUrl && (
+                  <a
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Live Demo
+                  </a>
+                )}
+              </p>
+            </article>
+          ))}
+        </section>
+
+        <section>
+          <h2>Technical Skills</h2>
+          <div className="portfolio-skills-grid">
+            {Object.entries(skills).map(([group, values]) => (
+              <div key={group}>
+                <h3>{group}</h3>
+                <ul>
+                  {values.map((value) => (
+                    <li key={value}>{value}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <footer className="portfolio-footer">
+          <p>Powered by gradient descent and questionable sleep schedules.</p>
+        </footer>
+      </div>
+    </main>
   );
 }

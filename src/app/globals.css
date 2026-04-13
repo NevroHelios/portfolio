@@ -136,16 +136,228 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #fbbf24;
+  background: #06b6d4;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #d97706;
+  background: #0891b2;
 }
 
 /* For Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #fbbf24 rgba(0, 0, 0, 0.8);
+  scrollbar-color: #06b6d4 rgba(0, 0, 0, 0.8);
+}
+
+/* Demo-inspired minimalist portfolio theme */
+.portfolio-body {
+  --portfolio-bg: #111;
+  --portfolio-text: #eaeaea;
+  --portfolio-accent: #64ffda;
+  --portfolio-muted: #8892b0;
+  --portfolio-border: #222;
+  min-height: 100vh;
+  background-color: var(--portfolio-bg);
+  color: var(--portfolio-text);
+  font-family: Rubik, "Segoe UI", system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  padding: 2rem 1rem;
+}
+
+.portfolio-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.portfolio-nav {
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.portfolio-nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.portfolio-nav-links a {
+  color: var(--portfolio-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.portfolio-nav-links a:hover,
+.portfolio-nav-links a.active {
+  color: var(--portfolio-accent);
+}
+
+.portfolio-body h1,
+.portfolio-body h2,
+.portfolio-body h3 {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.portfolio-body h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-body h2 {
+  font-size: 1.5rem;
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--portfolio-border);
+  padding-bottom: 0.5rem;
+}
+
+.portfolio-body h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+  color: #e6f1ff;
+}
+
+.portfolio-body p {
+  margin-bottom: 1rem;
+  color: var(--portfolio-muted);
+}
+
+.portfolio-body a {
+  color: var(--portfolio-accent);
+  text-decoration: none;
+}
+
+.portfolio-body a:hover {
+  text-decoration: underline;
+}
+
+.portfolio-profile-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.portfolio-profile-info {
+  flex: 1;
+}
+
+.portfolio-profile-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.portfolio-subtitle {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--portfolio-accent) !important;
+  margin-bottom: 1rem;
+}
+
+.portfolio-social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  align-items: center;
+}
+
+.portfolio-social-links a {
+  color: var(--portfolio-text);
+  font-size: 1rem;
+}
+
+.portfolio-social-links a:hover {
+  color: var(--portfolio-accent);
+  text-decoration: none;
+}
+
+.portfolio-body ul {
+  list-style: none;
+}
+
+.portfolio-body li {
+  margin-bottom: 0.5rem;
+  color: var(--portfolio-muted);
+}
+
+.portfolio-project-item {
+  margin-bottom: 2rem;
+}
+
+.portfolio-project-meta {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--portfolio-muted) !important;
+  margin-bottom: 0.5rem;
+}
+
+.portfolio-project-links {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.portfolio-skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.portfolio-footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--portfolio-border);
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 600px) {
+  .portfolio-profile-header {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .portfolio-profile-img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .portfolio-nav-links {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .portfolio-skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .portfolio-container {
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 0 4rem;
+    margin: 4rem auto;
+  }
+
+  .portfolio-nav {
+    position: fixed;
+    margin-bottom: 0;
+    display: flex;
+  }
+
+  .portfolio-nav-links {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .portfolio-container > *:not(.portfolio-nav) {
+    grid-column: 2;
+  }
 }

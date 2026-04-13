@@ -72,7 +72,7 @@ const HeroSection = () => {
             className="mb-6 relative inline-block group"
           >
             <p className="text-lg sm:text-xl md:text-2xl text-gray-400 max-w-2xl px-4">
-              Machine Learning Engineer & Full Stack Developer
+              Machine Learning Engineer   
             </p>
             {/* Animated underline */}
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-500 transition-all duration-700 delay-100 group-hover:w-full"></span>

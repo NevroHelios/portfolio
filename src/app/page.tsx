@@ -1,182 +1,115 @@
-"use client"
-import { Button } from "@/components/ui/button";
-import { GithubIcon, LinkedinIcon, MailIcon, TwitterIcon } from "lucide-react";
-import ProjectCard from "@/components/ProjectCard";
-import SkillBadge from "@/components/SkillBadge";
-import BlogPostCard from "@/components/BlogPostCard";
-import { motion, useAnimation, useInView } from "framer-motion";
-import { MapPin } from "lucide-react";
-import HeroSection from "@/components/HeloSection";
-import { featuredProjects, recentBlogPosts, skills } from "@/data/data";
-import BatLogo from "@/components/BatLogo";
-import Skill_About from "@/components/Skill&About";
-import { useEffect, useRef } from "react";
-import Footer from "@/components/Footer";
+import Image from "next/image";
+import Link from "next/link";
+import { FileText, Github, Linkedin, Mail } from "lucide-react";
+import { featuredProjects, skills } from "@/data/data";
 
-// Define animation variants for staggered animations
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-};
-
-const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      type: "spring",
-      stiffness: 100
-    }
-  }
-};
-
-// Custom hook for scroll animations - modified to only animate once
-const useScrollAnimation = () => {
-  const controls = useAnimation();
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.2 });
-  
-  useEffect(() => {
-    if (isInView) {
-      controls.start("visible");
-    }
-  }, [controls, isInView]);
-  
-  return { ref, controls, isInView };
-};
+const interests = [
+  "AI & Machine Learning in Medicine",
+  "LLM Evaluation & Alignment",
+];
 
 export default function Home() {
-  const projectsAnimation = useScrollAnimation();
-  const blogAnimation = useScrollAnimation();
-  const projectsContainerAnimation = useScrollAnimation();
+  const lastUpdated = new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  }).format(new Date());
 
   return (
-    <div className="min-h-screen bg-black text-gray-300">
-      {/* Hero Section */}
-      <HeroSection />
-      
-      {/* Combined About & Skills Section */}
-      <Skill_About />
-      
-      {/* Projects Section */}
-      <section id="projects" className="py-12 sm:py-16 lg:py-20 bg-zinc-900/30 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black to-zinc-900 opacity-80"></div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div
-            ref={projectsAnimation.ref}
-            initial="hidden"
-            animate={projectsAnimation.controls}
-            variants={{
-              visible: { opacity: 1, y: 0 },
-              hidden: { opacity: 0, y: 20 }
-            }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="flex items-center justify-center mb-6 sm:mb-8">
-              <div className="h-px bg-yellow-500 w-8 sm:w-12 mr-2 sm:mr-4"></div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white uppercase tracking-wider text-center">
-                The Cases
-              </h2>
-              <div className="h-px bg-yellow-500 w-8 sm:w-12 ml-2 sm:ml-4"></div>
-            </div>
-            <p className="text-gray-400 max-w-2xl mx-auto text-center mb-8 sm:mb-12 px-4 text-sm sm:text-base">
-              A selection of my recent missions spanning machine learning, data science, and web development.
-            </p>
-            
-            <motion.div 
-              ref={projectsContainerAnimation.ref}
-              variants={containerVariants}
-              initial="hidden"
-              animate={projectsContainerAnimation.controls}
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
-            >
-                {featuredProjects.slice(0, 3).map((project, index) => (
-                <motion.div 
-                  key={project.id} 
-                  variants={itemVariants}
-                  className="transform transition-all duration-300 hover:translate-y-[-8px]"
-                >
-                  <ProjectCard project={project} />
-                </motion.div>
-                ))}
-            </motion.div>
-            
-            <div className="text-center mt-8 sm:mt-12">
-              <Button variant="outline" className="bg-dark border-yellow-500 text-yellow-400 hover:text-yellow hover:bg-yellow-900/20 uppercase tracking-wide font-medium w-full sm:w-auto">
-                <a href="/projects" className="block w-full">
-                View All Projects
-                </a>
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+    <main className="portfolio-body">
+      <div className="portfolio-container">
+        <nav className="portfolio-nav">
+          <div className="portfolio-nav-links">
+            <Link href="/" className="active">
+              Home
+            </Link>
+            <Link href="/projects">Work</Link>
+            <Link href="/blogs">Research</Link>
+          </div>
+        </nav>
 
-      {/* Blog Section */}
-      {/* <section id="blog" className="py-12 sm:py-16 lg:py-20 bg-black relative">
-        <div className="absolute inset-0 bg-[url('/gotham-grid.png')] bg-repeat opacity-5"></div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div
-            ref={blogAnimation.ref}
-            initial="hidden"
-            animate={blogAnimation.controls}
-            variants={{
-              visible: { opacity: 1, y: 0 },
-              hidden: { opacity: 0, y: 20 }
-            }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="flex items-center justify-center mb-6 sm:mb-8">
-              <div className="h-px bg-yellow-500 w-8 sm:w-12 mr-2 sm:mr-4"></div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-white uppercase tracking-wider text-center">
-                The Chronicles
-              </h2>
-              <div className="h-px bg-yellow-500 w-8 sm:w-12 ml-2 sm:ml-4"></div>
-            </div>
-            <p className="text-gray-400 max-w-2xl mx-auto text-center mb-8 sm:mb-12 px-4 text-sm sm:text-base">
-              I share my insights on machine learning, data science, and software development from the shadows.
+        <section className="portfolio-profile-header">
+          <div className="portfolio-profile-info">
+            <h1>Arka Dash</h1>
+            <p className="portfolio-subtitle">
+              Machine Learning Engineer   
             </p>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
-              {recentBlogPosts.map((post, index) => {
-                const postAnimation = useScrollAnimation();
-                return (
-                  <motion.div 
-                    key={post.id}
-                    ref={postAnimation.ref}
-                    initial="hidden"
-                    animate={postAnimation.controls}
-                    variants={{
-                      visible: { opacity: 1, y: 0 },
-                      hidden: { opacity: 0, y: 20 }
-                    }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <BlogPostCard post={post} />
-                  </motion.div>
-                );
-              })}
-            </div>
-            
-            <div className="text-center mt-8 sm:mt-12">
-              <Button variant="outline" className="bg-dark border-yellow-500 text-yellow-400 hover:bg-yellow-900/20 hover:text-yellow uppercase tracking-wide font-medium w-full sm:w-auto">
-                <a href="/blog" className="block w-full">
-                Read All Posts
-                </a>
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section> */}
+            <p>
+              I build machine learning systems and production-grade software, with a
+              focus on robust pipelines, efficient model deployment, and practical
+              automation.
+            </p>
 
-      {/* Footer */}
-     <Footer />
-    </div>
+            <div className="portfolio-social-links">
+              <a href="mailto:arkadash1173@gmail.com" aria-label="Email">
+                <Mail size={18} />
+              </a>
+              <a
+                href="https://github.com/NevroHelios"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+              >
+                <Github size={18} />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/arka-dash/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={18} />
+              </a>
+              <Link href="/blogs">Blog</Link>
+              {/* <a href="#" aria-label="Resume">
+                <FileText size={17} />
+              </a> */}
+            </div>
+          </div>
+
+          <Image
+            src="/saber_1.png"
+            alt="Arka Dash"
+            width={150}
+            height={150}
+            className="portfolio-profile-img"
+            priority
+          />
+        </section>
+
+        <section>
+          <h2>Research Interests</h2>
+          <ul>
+            {interests.map((interest) => (
+              <li key={interest}>{interest}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section>
+          <h2>Selected Work</h2>
+          <ul>
+            {featuredProjects.slice(0, 3).map((project) => (
+              <li key={project.id}>
+                <strong>{project.title}</strong> — {project.stack.slice(0, 3).join(", ")}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section>
+          <h2>Technical Skills</h2>
+          <ul>
+            <li><strong>ML:</strong> PyTorch, PyTorch Lightning, LightGBM, Scikit-learn, ONNX, TensorRT</li>
+            <li><strong>MLOps:</strong> Docker, GCP, AWS SageMaker, W&B, CI/CD</li>
+            <li><strong>Languages:</strong> Python, TypeScript, SQL, Bash</li>
+          </ul>
+        </section>
+
+        <footer className="portfolio-footer">
+          <p>Last updated: {lastUpdated}</p>
+        </footer>
+      </div>
+    </main>
   );
 }
