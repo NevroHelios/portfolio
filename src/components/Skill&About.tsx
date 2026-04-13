@@ -1,7 +1,7 @@
 import { motion, useAnimation, useInView } from 'framer-motion';
 import SkillBadge from './SkillBadge';
 import BatLogo from './BatLogo';
-import { featuredProjects, recentBlogPosts, skills, achievements } from "@/data/data";
+import { featuredProjects, skills, achievements } from "@/data/data";
 import { useEffect, useRef } from 'react';
 
 // Custom hook for scroll animations
