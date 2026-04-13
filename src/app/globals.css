@@ -161,6 +161,7 @@ body {
   background-color: var(--portfolio-bg);
   color: var(--portfolio-text);
   font-family: Rubik, "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-size: 1.05rem;
   line-height: 1.6;
   padding: 2rem 1rem;
 }
@@ -204,19 +205,19 @@ body {
 }
 
 .portfolio-body h1 {
-  font-size: 2.5rem;
+  font-size: 2.75rem;
   margin-bottom: 0.5rem;
 }
 
 .portfolio-body h2 {
-  font-size: 1.5rem;
+  font-size: 1.65rem;
   margin-top: 2.5rem;
   border-bottom: 1px solid var(--portfolio-border);
   padding-bottom: 0.5rem;
 }
 
 .portfolio-body h3 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   margin-bottom: 0.25rem;
   color: #e6f1ff;
 }

@@ -35,9 +35,10 @@ export default function Home() {
               Machine Learning Engineer   
             </p>
             <p>
-              I build machine learning systems and production-grade software, with a
-              focus on robust pipelines, efficient model deployment, and practical
-              automation.
+              CS undergrad at <strong>IIT Madras & KGEC</strong>, focused on
+              building <strong>production ML systems</strong> — from model training
+              and optimization to deployment and evaluation. Strong in{" "}
+              <strong>deep learning, MLOps, and LLM evaluation</strong>.
             </p>
 
             <div className="portfolio-social-links">
@@ -68,7 +69,7 @@ export default function Home() {
           </div>
 
           <Image
-            src="/saber_1.png"
+            src="/image-2.png"
             alt="Arka Dash"
             width={150}
             height={150}
@@ -77,16 +78,16 @@ export default function Home() {
           />
         </section>
 
-        <section>
+        {/* <section>
           <h2>Research Interests</h2>
           <ul>
             {interests.map((interest) => (
               <li key={interest}>{interest}</li>
             ))}
           </ul>
-        </section>
+        </section> */}
 
-        <section>
+        {/* <section>
           <h2>Selected Work</h2>
           <ul>
             {featuredProjects.slice(0, 3).map((project) => (
@@ -95,7 +96,7 @@ export default function Home() {
               </li>
             ))}
           </ul>
-        </section>
+        </section> */}
 
         <section>
           <h2>Technical Skills</h2>

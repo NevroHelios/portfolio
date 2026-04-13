@@ -113,6 +113,25 @@ const skills = {
   "Concepts": ["Model Optimization", "Time-Series Forecasting", "Computer Vision", "Multimodal Learning", "Neuro-Symbolic AI"]
 };
 
+const education = [
+  {
+    id: 1,
+    institution: "IIT Madras",
+    degree: "Bachelor of Science in Data Science and Programming",
+    period: "2023 – 2027",
+    cgpa: "8.8/10",
+    location: "Remote (Dual Degree)",
+  },
+  {
+    id: 2,
+    institution: "Kalyani Government Engineering College",
+    degree: "Bachelor of Technology in Computer Science",
+    period: "2023 – 2027",
+    cgpa: "8.4/10",
+    location: "Kalyani, India",
+  },
+];
+
 const achievements = [
   "AIR 27 @AmazonMLChallenge",
   "SIH 2025 Finalist",
@@ -121,4 +140,4 @@ const achievements = [
   "Achieved top 120 rank in Kaggle Sticker Sales Forecasting competition",
 ];
 
-export { featuredProjects, experiences, papers, skills, achievements };
+export { featuredProjects, experiences, papers, skills, achievements, education };

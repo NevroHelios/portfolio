@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { papers } from "@/data/data";
+import { papers, education } from "@/data/data";
 
 export default function BlogsPage() {
   return (
@@ -16,7 +16,7 @@ export default function BlogsPage() {
         </nav>
 
         <section>
-          <h1>Research</h1>
+          <h1>Research & Academia</h1>
           <p>
             Published work on AI safety, adversarial robustness, and machine learning systems.
           </p>
@@ -40,6 +40,19 @@ export default function BlogsPage() {
                 ))}
               </p>
               <p>{paper.oneLiner}</p>
+            </article>
+          ))}
+        </section>
+
+        <section>
+          <h2>Education</h2>
+          {education.map((edu) => (
+            <article key={edu.id} className="portfolio-project-item">
+              <h3>{edu.institution}</h3>
+              <p className="portfolio-project-meta">
+                {edu.degree} · {edu.period}
+              </p>
+              <p>CGPA: {edu.cgpa} &nbsp;·&nbsp; {edu.location}</p>
             </article>
           ))}
         </section>
