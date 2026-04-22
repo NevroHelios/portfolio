@@ -35,10 +35,11 @@ export default function Home() {
               Machine Learning Engineer   
             </p> */}
             <p>
-              CS undergrad at <strong>IIT Madras & KGEC</strong>, focused on
-              building <strong>software that ships</strong> — solving real problems
-              end-to-end. Driven by{" "}
-              <strong>strong fundamentals, clean systems, and a bias for action</strong>.
+              I research, build and ship products, and I'm proficient with{" "}
+              <strong>SDE, ML Engineering & DevOps</strong>. I've worked on building
+              infrastructure to support <strong>30k users</strong>, tested and deployed
+              eval frameworks for safe and responsible AI, and conducted{" "}
+              <strong>technical AI safety research</strong>.
             </p>
 
             <div className="portfolio-social-links">
