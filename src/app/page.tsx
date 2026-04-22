@@ -31,14 +31,14 @@ export default function Home() {
         <section className="portfolio-profile-header">
           <div className="portfolio-profile-info">
             <h1>Arka Dash</h1>
-            <p className="portfolio-subtitle">
+            {/* <p className="portfolio-subtitle">
               Machine Learning Engineer   
-            </p>
+            </p> */}
             <p>
               CS undergrad at <strong>IIT Madras & KGEC</strong>, focused on
-              building <strong>production ML systems</strong> — from model training
-              and optimization to deployment and evaluation. Strong in{" "}
-              <strong>deep learning, MLOps, and LLM evaluation</strong>.
+              building <strong>software that ships</strong> — solving real problems
+              end-to-end. Driven by{" "}
+              <strong>strong fundamentals, clean systems, and a bias for action</strong>.
             </p>
 
             <div className="portfolio-social-links">
@@ -104,6 +104,7 @@ export default function Home() {
             <li><strong>ML:</strong> PyTorch, PyTorch Lightning, LightGBM, Scikit-learn, ONNX, TensorRT</li>
             <li><strong>MLOps:</strong> Docker, GCP, AWS SageMaker, W&B, CI/CD</li>
             <li><strong>Languages:</strong> Python, TypeScript, SQL, Bash</li>
+            <li><strong>Frameworks:</strong> React, Nextjs</li>
           </ul>
         </section>
 
